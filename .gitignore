@@ -1,5 +1,4 @@
-# Created by https://www.gitignore.io/api/node,bower
-# Și modificat de mine :D
+﻿
 ### Node ###
 # Logs
 logs
@@ -54,3 +53,4 @@ composer.lock
 public_html/assets/*
 !public_html/assets/readme.txt
 !public_html/assets/img*
+.trash
