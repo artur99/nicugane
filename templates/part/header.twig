@@ -15,7 +15,7 @@
 <div class="menu">
     <div class="cin">
         <!-- <div class="leftmenu"> </div> -->
-        <img src="{{asset('img/logo.png')}}" alt="" class="logo">
+        <a href="{{l('/')}}"><img src="{{asset('img/logo.png')}}" alt="" class="logo"></a>
         <div class="rightmenu">
             <div class="menuitm{{mact('/')}}"><a href="{{l('/')}}">Acasă</a></div>
             <div class="menuitm{{mact('/despre-noi')}}"><a href="{{l('/despre-noi')}}">Despre noi</a></div>
@@ -24,6 +24,28 @@
             <div class="menuitm"><a href="#">Evenimente</a></div>
             <div class="menuitm"><a href="#">Catedre</a></div>
             <div class="menuitm"><a href="#">Contact</a></div>
+        </div>
+        <div class="mobilemenu">
+            <div class="mobilemenu_header">
+                <a href="{{l('/')}}"><img src="{{asset('img/logo.png')}}" alt="" class="logomobile"></a>
+                <i class="material-icons">&#xE5D2;</i>
+                <a href="{{l('/')}}"><span>Colegiul Național „Nicu Gane” Fălticeni</span></a>
+                <div class="clear"></div>
+            </div>
+            <div class="mobilemenu_items">
+                <a href="{{l('/')}}" {{mact2('/')|raw}}>Acasă</a>
+                <a href="{{l('/oferta-educationala')}}" {{mact2('/oferta-educationala')|raw}}>Oferta Educațională</a>
+                <a href="{{l('/despre-noi')}}" {{mact2('/despre-noi')|raw}}>Despre noi</a>
+                <a href="{{l('/istoric')}}" {{mact2('/istoric')|raw}}>Istoric</a>
+                <a href="#">Galerie Media</a>
+                <a href="#">Avizier</a>
+                <a href="#">Activități</a>
+                <a href="#">Evenimente</a>
+                <a href="#">Catedre</a>
+                <a href="#">Contact</a>
+                <a href="#">Profesori</a>
+                <a href="#">Contul meu</a>
+            </div>
         </div>
     </div>
 </div>

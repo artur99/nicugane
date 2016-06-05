@@ -34,6 +34,7 @@ html,body{
     height: 40px;
     background: #2071EE !important;
     text-align: right;
+    font-size: 0;
 }
 .topbar a{
     display: inline-block;
@@ -45,6 +46,7 @@ html,body{
     text-decoration: none;
     font-weight: 500;
     padding: 2px 12px;
+    padding-right: 14px;
     border-right: 2px solid white;
 }
 .topbar a:after{
@@ -58,6 +60,19 @@ html,body{
 }
 .topbar a:hover:after, .topbar a.active:after{
     width: 100%;
+}
+@media(max-width:970px){
+    .topbar a{
+        padding: 2px 6px;
+        padding-right: 8px;
+    }
+}
+@media(max-width:910px){
+    .topbar a{
+        padding: 2px 5px;
+        border-right: none;
+    }
+
 }
 .topbar form{
     display: inline-block;
@@ -195,6 +210,90 @@ html,body{
     top: 35px;
     left: 0;
 }
+.mobilemenu{
+    display: none;
+}
+ /* Versiunea de mobil a headerului */
+@media(max-width:880px){
+    .menu{
+        position: relative;
+    }
+    .topbar{
+        height: 40px;
+        text-align: center;
+
+    }
+    .topbar a, .menu .logo, .rightmenu{
+        display: none;
+    }
+    .topbar .cin{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .topbar .fsbtn, .topbar form{
+        display: block;
+    }
+    .mobilemenu{
+        display: block;
+    }
+    .menu{
+        height: auto;
+    }
+    .mobilemenu_header .logomobile{
+        display: block;
+        height: 80px;
+        float: left;
+        margin-top: -25px;
+    }
+    .mobilemenu_header span{
+        text-align: center;
+        font-size: 16px;
+        height: 50px;
+        font-weight: bold;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        text-decoration: none;
+        color: #555;
+    }
+    .mobilemenu_header i{
+        display: block;
+        float: right;
+        font-size: 50px;
+        cursor: pointer;
+    }
+    .mobilemenu_items{
+        display: none;
+        overflow: hidden;
+    }
+    .mobilemenu_items a{
+        width: 50%;
+        display: block;
+        float: left;
+        text-align: center;
+        font-size: 15px;
+        padding: 6px 0;
+        color: #333;
+    }
+    .mobilemenu_items a:hover,.mobilemenu_items a.active{
+        background: #555;
+        color: white;
+    }
+}
+@media(min-width:500px){
+    .mobilemenu_items a{
+        width: 33%;
+        padding: 10px 0;
+    }
+}
+
 
 
 .btnfix{
@@ -311,7 +410,7 @@ html,body{
     display: block;
     font-size: 15px;
     line-height: 21px;
-    transition: .3s all;
+    transition: .2s all;
 }
 .footer .linklist a:hover{
     color: white;
@@ -386,6 +485,18 @@ html,body{
     font-size: 15px;
     vertical-align: middle;
 }
+@media(max-width:500px){
+    .header h1{
+        font-size: 7vw;;
+    }
+}
+@media(max-width:200px){
+    .header h1{
+        font-size: 26px;
+    }
+}
+
+
 .thepage{
     overflow: hidden;
 }
