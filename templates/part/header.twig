@@ -1,0 +1,29 @@
+<div class="topbar">
+    <div class="cin">
+        <a href="{{l('/oferta-educationala')}}" {{mact2('/oferta-educationala')|raw}}>Oferta Educațională</a>
+        <a href="{{l('/istoric')}}" {{mact2('/istoric')|raw}}>Istoric</a>
+        <a href="#">Galerie Media</a>
+        <a href="#">Profesori</a>
+        <a href="#">Contul meu</a>
+        <form action="">
+            <input id="search1" type="text" placeholder="Caută în site...">
+            <input type="submit" class="hide">
+        </form>
+        <img class="fsbtn" src="{{asset('img/ico/search.png')}}" alt="">
+    </div>
+</div>
+<div class="menu">
+    <div class="cin">
+        <!-- <div class="leftmenu"> </div> -->
+        <img src="{{asset('img/logo.png')}}" alt="" class="logo">
+        <div class="rightmenu">
+            <div class="menuitm{{mact('/')}}"><a href="{{l('/')}}">Acasă</a></div>
+            <div class="menuitm{{mact('/despre-noi')}}"><a href="{{l('/despre-noi')}}">Despre noi</a></div>
+            <div class="menuitm"><a href="#">Avizier</a></div>
+            <div class="menuitm"><a href="#">Activități</a></div>
+            <div class="menuitm"><a href="#">Evenimente</a></div>
+            <div class="menuitm"><a href="#">Catedre</a></div>
+            <div class="menuitm"><a href="#">Contact</a></div>
+        </div>
+    </div>
+</div>

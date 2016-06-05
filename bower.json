@@ -1,0 +1,28 @@
+{
+  "name": "nicugane",
+  "version": "1.0.0",
+  "directory": "public_html/assets",
+  "dependencies": {
+    "Materialize": "materialize#^0.97.5",
+    "material-preloader": "artur99/material-preloader",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "appPath": "app",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "http://nicugane.ro",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "artur99 <david1989mail@yahoo.com>"
+  ],
+  "private": true
+}

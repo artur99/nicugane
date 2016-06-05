@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {%set fulltitle = 'Colegiul Național „Nicu Gane” Fălticeni'%}
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+    <div class="slidup">
+        <div class="slider">
+            <div class="slidover">
+                <div>
+                    <h1>Colegiul Național „Nicu Gane”<br>Fălticeni</h1>
+                    <div class="btnfix">
+                        <a href="{{l('/despre-noi')}}" class="btn1">Despre noi</a>
+                        <a href="{{l('/oferta-educationala')}}" class="btn1">Oferta educațională</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec sec1">
+        <div class="cin">
+            <h2 class="subtitle">Anunțuri</h2>
+            <div class="lines"></div>
+            <div class="news">
+                <a href="#" class="newsitem z-depth-1">
+                    <div class="news-header" style="background-image:url('http://www.ziuaconstanta.ro/images/stories/2016/01/08/Loredana/evaluare-nationala.jpg')"></div>
+                    <div class="news-cont">
+                        <h3>Desfășurare Evaluare Națională 2016</h3>
+                        <div>
+                            <p>Ordinul privind organizarea și desfășurarea evaluării naționale pentru absolvenții clasei a VIII-a în...</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newsitem z-depth-1">
+                    <div class="news-header" style="background-image:url('http://media.stiripesurse.ro/image/201409/w800/bac.jpg')"></div>
+                    <div class="news-cont">
+                        <h3>Desfășurare Examen Bacalaureat 2016</h3>
+                        <div>
+                            <p>Ordinul privind organizarea și desfășurarea examenului de bacalaureat 2016</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newsitem z-depth-1">
+                    <div class="news-header" style="background-image:url('/assets/img/cover.jpg')"></div>
+                    <div class="news-cont">
+                        <h3>Structura anului școlar 2015-2016</h3>
+                        <div>
+                            <p>Structura completă a anului școlar 2015-2016</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newsitem z-depth-1">
+                    <div class="news-header" style="background-image:url('http://www.europarl.hr/resource/static/images/epio_euroscola-2016_background.jpg')"></div>
+                    <div class="news-cont">
+                        <h3>Euroscola 2015</h3>
+                        <div>
+                            <p>Concursul National Euroscola 2015</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="newsitem z-depth-1">
+                    <div class="news-header" style="background-image:url('http://image.prntscr.com/image/ce2f03c8612a4aacbe01e09ee5977458.png')"></div>
+                    <div class="news-cont">
+                        <h3>Update la site-ul liceului</h3>
+                        <div>
+                            <p>Site-ul liceului a primit recent un update la interfață și structură...</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="sec sec2">
+        <div class="cin">
+            <h2 class="subtitle">Despre noi</h2>
+            <div class="lines"></div>
+            <p>Colegiul Naţional „Nicu Gane” nu e doar o instituţie de învăţământ cu rolul de a educa tinerii, ci e şi un centru cultural. El are menirea de a desfăşura un proces educativ complex reprezentat deopotrivă de procesul educaţional propriu-zis, dar şi de iniţierea şi organizarea unor evenimente socio-culturale cu deschidere mai largă. Şcolar şi extraşcolar devin astfel parţi componente ale unui program unic pe care instituţia îl desfăşoară şi susţine prin toate mijloacele şi resursele sale. Colegiul devine astfel şi o modalitate de a încuraja procesul educaţiei permanente, ca şi un factor prin care se menţină legatura cu instituţii şi centre de cultură de nivel superior.</p>
+            <p>
+                Colegiul Naţional „Nicu Gane” este un liceu teoretic, de cultură generală, cu două nivele: gimnazial şi liceal. La nivel liceal are două profiluri: real si uman. Specializările corespunzatoare acestor profiluri sunt:<br>
+                - Pentru profilul real: matematică-informatică și ştiinţe ale naturii;<br>
+                - Pentru profilul uman: filologie și științe socio-umane;<br>
+            </p>
+            <br>
+            <a href="{{l('/despre-noi')}}" class="btn2">Mai multe detalii</a>
+            <a href="{{l('/oferta-educationala')}}" class="btn2">Oferta Educațională</a>
+            <br><br><br>
+            <div class="tops">
+                <div class="topsitem">
+                    <div class="circle js-count" data-count="30" data-pattern="*">30</div>
+                    <span>Olimpici la naționale în 2016</span>
+                </div>
+                <div class="topsitem">
+                    <div class="circle js-count" data-count="97" data-pattern="*%">97%</div>
+                    <span>Promovabilitate bac 2015</span>
+                </div>
+                <div class="topsitem">
+                    <div class="circle js-count" data-count="500" data-pattern="*">500</div>
+                    <span>Elevi care activează în 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec sec2">
+        <div class="cin">
+            <h2 class="subtitle">Alte linkuri</h2>
+
+        </div>
+    </div>
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

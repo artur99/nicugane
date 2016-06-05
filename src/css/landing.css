@@ -1,0 +1,178 @@
+.slidup{
+    width: 100%;
+    height: auto;
+    background: url(/assets/img/bg1.png), #0F0E14;
+}
+.slider{
+    width: 100%;
+    max-width: 1600px;
+    min-height: 83vh;
+    height: auto;
+    margin: auto;
+    background: url(../img/cover.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+}
+.slidover{
+    width: 100%;
+    height: 100%;
+    min-height: 85vh;
+    background: url(../img/bg1.png), rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 40px 3px;
+}
+.slidover h1{
+    font-size: 9vh;
+    line-height: 13vh;
+    margin: 0;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+.sec{
+    padding: 20px 0;
+    text-align: center;
+    color: #333;
+    min-height: 500px;
+    font-family: 'Open Sans', sans-serif;
+}
+.sec .subtitle{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.sec2 p{
+    text-align: justify;
+    text-indent: 6vw;
+    font-style: italic;
+    font-size: 23px;
+    font-weight: lighter;
+}
+/* Anunțurile din prima secțiune */
+.news{
+    width: 100%;
+    text-align: center;
+}
+.newsitem{
+    display: inline-block;
+    width: 30%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 10px;
+    margin-bottom: 15px;
+    color: #333;
+    text-decoration: none;
+}
+.newsitem .news-header{
+    height: 145px;
+    width: 100%;
+    display: block;
+    background-image: url('../img/cover.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.newsitem .news-header:before{
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 4vw solid rgba(255,255,255,0.35);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    left: -4vw;
+    top: -4vw;
+    transition: .25s left, .25s top;
+}
+.newsitem:hover .news-header:before{
+    top: 0;
+    left: 0;
+}
+.newsitem .news-cont{
+    padding: 20px 15px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.newsitem .news-cont h3{
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 7px;
+}
+.newsitem .news-cont > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.newsitem .news-cont p{
+    font-size: 16px;
+    margin: 0;
+}
+@media(max-width: 870px){
+    .newsitem{
+        width: 45%;
+    }
+    .newsitem .news-cont{
+        padding: 20px 5px;
+    }
+}
+@media(max-width: 530px){
+    .newsitem{
+        width: 95%;
+    }
+}
+/* Top-urile liceului */
+.tops{
+    text-align: center;
+    margin-bottom: 30px;
+}
+.topsitem{
+    position: relative;
+    width: 33%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 23px;
+    text-align: left;
+}
+.topsitem .circle{
+    display: block;
+    margin: auto;
+    width: 110px;
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+    border-radius: 50%;
+    font-size: 30px;
+    background: #2196f3;
+    color: white;
+    float: left;
+    margin-right: 10px;
+    /*transition: 0s all;*/
+    transition: .3s all;
+}
+.topsitem .circle.zoomed{
+    transform: scale(1.2);
+    opacity: .7;
+}
+.topsitem span{
+    position: absolute;
+    top: 15px;
+}
+@media(max-width: 960px){
+    .topsitem{
+        width: 45%;
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 630px){
+    .topsitem{
+        width: 95%;
+    }
+}

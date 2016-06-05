@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="thepage">
+        <div class="cin">
+            <div class="thecontent">
+                {% include 'pages/'~staticpage~'.twig' %}
+            </div>
+            {% include 'part/sidebar.twig' %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

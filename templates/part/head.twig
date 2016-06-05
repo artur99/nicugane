@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link href="{{asset("components/data.css")}}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+{% if fulltitle is defined %}
+    {% set ctitle = fulltitle %}
+{% else %}
+    {% set ctitle = title is defined?app['conf.title']~' | '~title:app['conf.title']%}
+{% endif %}
+<title>{{ctitle}}</title>
+{% if meta is defined %}{% for key,itm in meta %}
+<meta name="{{key}}" content="{{itm}}">
+{% endfor %}{% endif %}
