@@ -10,7 +10,7 @@
 {% if fulltitle is defined %}
     {% set ctitle = fulltitle %}
 {% else %}
-    {% set ctitle = title is defined?app['conf.title']~' | '~title:app['conf.title']%}
+    {% set ctitle = title is defined?title~' | '~app['conf.title']:app['conf.title']%}
 {% endif %}
 <title>{{ctitle}}</title>
 {% if meta is defined %}{% for key,itm in meta %}

@@ -1,18 +1,30 @@
 <?php
-include 'routers/helper.php';
-include 'routers/mains.php';
-include 'routers/ajax_login.php';
-include 'routers/ajax_dash.php';
-include 'routers/ajax_groups.php';
+include 'helper.php';
+include 'router_main.php';
+include 'ajax_login.php';
+include 'ajax_dash.php';
+include 'ajax_groups.php';
 
 
 $app->get('/', $router['index']);
-$app->match('/dashboard', $router_dash);
 //la requesturile satatice parametrii sunt pe rând id-ul paginii(din templates/pages) și titlul acesteia
 $app->match('/despre-noi', $router_helper('static', ['despre-noi', 'Despre noi']));
 $app->match('/oferta-educationala', $router_helper('static', ['oferta-educationala', 'Oferta Educațională']));
 $app->match('/istoric', $router_helper('static', ['istoric', 'Istoric']));
+$app->match('/galerie', $router_helper('static', ['galerie', 'Galerie Media']));
+$app->match('/contact', $router_helper('static', ['contact', 'Contact']));
+$app->match('/profesori', $router_helper('profesori'));
+$app->match('/profesori/{param}', $router_helper('profesor'));
+$app->match('/activitati', $router_helper('activitati'));
+$app->match('/activitati/{param}', $router_helper('activitate'));
+$app->match('/evenimente', $router_helper('evenimente'));
+$app->match('/evenimente/{param}', $router_helper('eveniment'));
 
+$app->match('/evenimente', $router_helper('proto'));
+
+
+
+$app->match('/dashboard', $router_dash);
 $app->match('/dashboard/groups', $router_dash_groups);
 $app->match('/dashboard/group/{gid}', $router_dash_group_in);
 

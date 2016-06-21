@@ -52,81 +52,15 @@
     font-size: 23px;
     font-weight: lighter;
 }
+@media(max-width:500px){
+    .sec2 p{
+        font-size: 19px;
+    }
+}
 /* Anunțurile din prima secțiune */
 .news{
     width: 100%;
     text-align: center;
-}
-.newsitem{
-    display: inline-block;
-    width: 30%;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 0 10px;
-    margin-bottom: 15px;
-    color: #333;
-    text-decoration: none;
-}
-.newsitem .news-header{
-    height: 145px;
-    width: 100%;
-    display: block;
-    background-image: url('../img/cover.jpg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-}
-.newsitem .news-header:before{
-    position: absolute;
-    display: block;
-    content: '';
-    width: 0;
-    height: 0;
-    border: 4vw solid rgba(255,255,255,0.35);
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    left: -4vw;
-    top: -4vw;
-    transition: .25s left, .25s top;
-}
-.newsitem:hover .news-header:before{
-    top: 0;
-    left: 0;
-}
-.newsitem .news-cont{
-    padding: 20px 15px;
-    height: 190px;
-    display: flex;
-    flex-direction: column;
-}
-.newsitem .news-cont h3{
-    font-size: 20px;
-    margin: 0;
-    margin-bottom: 7px;
-}
-.newsitem .news-cont > div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
-.newsitem .news-cont p{
-    font-size: 16px;
-    margin: 0;
-}
-@media(max-width: 870px){
-    .newsitem{
-        width: 45%;
-    }
-    .newsitem .news-cont{
-        padding: 20px 5px;
-    }
-}
-@media(max-width: 530px){
-    .newsitem{
-        width: 95%;
-    }
 }
 /* Top-urile liceului */
 .tops{

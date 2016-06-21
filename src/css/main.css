@@ -21,7 +21,7 @@ html,body{
 .cin{
     display: block;
     margin: auto;
-    width: 95%;
+    width: 90%;
     max-width: 1000px;
 }
 @media(min-width: 1400px){
@@ -357,6 +357,24 @@ html,body{
     display: block;
     margin: 5px auto;
 }
+/* Efectul de la Noutăți/listă profesori */
+.light-effect:before{
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 4vw solid rgba(255,255,255,0.35);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    left: -4vw;
+    top: -4vw;
+    transition: .25s left, .25s top;
+}
+.light-effect-p:hover .light-effect:before{
+    top: 0;
+    left: 0;
+}
 /* Subsolul / Footer-ul */
 .footer{
     background: #202020;
@@ -525,14 +543,17 @@ html,body{
 .thepage .thecontent p{
     margin-top: 0;
 }
-.thepage .thecontent p:not(.n){
+.thepage .thecontent p:not(.n,.nn){
     text-indent: 4.5vw;
     text-align: justify;
+}
+.thepage .thecontent p.nn{
+    margin: 0;
 }
 .thepage .thecontent h2{
     margin: 6px 4px;
     font-size: 34px;
-    font-family: Raleway;
+    font-family: Raleway, 'Open Sans', sans-serif;
     font-weight: bold;
     margin-bottom: 13px;
 }
@@ -543,6 +564,12 @@ html,body{
     margin-top: 5px;
     height: 3px;
     background: #2071EE;
+}
+.thepage .thecontent h3{
+    margin: 10px 4px;
+    font-size: 26px;
+    font-family: Roboto, 'Open Sans', sans-serif;
+    margin-bottom: 11px;
 }
 .thecontent ul li{
     list-style-type: disc;
@@ -622,4 +649,64 @@ html,body{
     margin-bottom: 4px;
     line-height: 19px;
 }
-/* Ecran mare */
+/* Codul pentru carduri */
+
+.crlistitem{
+    display: inline-block;
+    width: 30%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 10px;
+    margin-bottom: 15px;
+    color: #333;
+    text-decoration: none;
+}
+.crlistitem .crlist-header{
+    height: 145px;
+    width: 100%;
+    display: block;
+    background-image: url('../img/cover.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.crlistitem .crlist-cont{
+    padding: 20px 15px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.crlistitem .crlist-cont h3{
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 7px;
+}
+.crlistitem .crlist-cont > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.crlistitem .crlist-cont p{
+    font-size: 16px;
+    margin: 0;
+}
+.cover1{
+    max-width: 95%;
+    display: block;
+    margin: auto;
+}
+@media(max-width: 870px){
+    .crlistitem{
+        width: 45%;
+    }
+    .crlistitem .crlist-cont{
+        padding: 20px 5px;
+    }
+}
+@media(max-width: 530px){
+    .crlistitem{
+        width: 95%;
+    }
+}

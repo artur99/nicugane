@@ -18,4 +18,5 @@ $(document).ready(function(){
     $('select').material_select();
     $(".tooltiped").tooltip();
     $('.modal-trigger').leanModal();
+    baguetteBox.run('.bbgallery');
 });

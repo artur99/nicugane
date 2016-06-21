@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="sec proflist">
+        <div class="cin">
+
+            <h2 class="subtitle">Activități</h2>
+            <div class="lines"></div>
+            {% for activ in data %}
+                {% if activ.link %}
+                    <a href="{{activ.link}}" class="crlistitem light-effect-p z-depth-1">
+                {% else %}
+                    <a href="{{l('/activitati/'~activ.id~'-'~(activ.title|slugify))}}" class="crlistitem light-effect-p z-depth-1">
+                {% endif %}
+                    <div class="crlist-header light-effect" style="{{activ.image ? "background-image:url('"~activ.image~"')"}}"></div>
+                    <div class="crlist-cont">
+                        <h3>{{activ.title}}</h3>
+                        <div>
+                            <p>{{activ.content|striptags|truncate(100)}}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

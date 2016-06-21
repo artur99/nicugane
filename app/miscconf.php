@@ -5,10 +5,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
+use Stringy\Stringy as S;
 
 function g_link($link){
     global $app;
+    if(strpos($link, '://') !== false) return $link;
     return $app['conf.url'].'/'.ltrim($link, '/');
+}
+function a_link($asset){
+    global $app;
+    if(strpos($asset, '://') !== false) return $asset;
+    return $app['conf.url'].$app['twig.assets'].ltrim($asset, '/');
 }
 function global_patches($app){
     global $fb;
@@ -22,29 +29,39 @@ $app['csrf'] = $app->share(function () {
     return new CsrfTokenManager();
 });
 $app['twig'] = $app->share($app->extend('twig', function($twig,$app){
+    $twig->addExtension(new Twig_Extensions_Extension_Text());
     $twig->addFunction(new \Twig_SimpleFunction('asset', function ($asset)use($app){
+        if(strpos($asset, '://') !== false) return $asset;
         return $app['conf.url'].$app['twig.assets'].ltrim($asset, '/');
     }));
     $twig->addFunction(new \Twig_SimpleFunction('user', function($what)use($app){
         return $app['user']->data($what);
     }));
     $twig->addFunction(new \Twig_SimpleFunction('l', function($what)use($app){
-        return $app['conf.url'].$what;
+        if(strpos($what, '://') !== false) return $what;
+        return $app['conf.url'].'/'.ltrim($what, '/');
     }));
     $twig->addFunction(new \Twig_SimpleFunction('csrftoken', function($id)use($app){
         return $app['csrf']->getToken($id)->__tostring();
     }));
     $twig->addFunction(new \Twig_SimpleFunction('mact', function($id)use($app){
-        return $app['request']->getPathInfo()==$id?' active':'';
+        $d1 = explode('/', ltrim($id, '/'));
+        $d2 = explode('/', ltrim($app['request']->getPathInfo(), '/'));
+        $cond = isset($d1[0], $d2[0]) && !empty($d1[0]) && $d1[0]==$d2[0];
+        return $id == $app['request']->getPathInfo() || $cond ?' active':'';
     }));
     $twig->addFunction(new \Twig_SimpleFunction('mact2', function($id)use($app){
-        return $app['request']->getPathInfo()==$id?'class="active"':'';
+        $d1 = explode('/', ltrim($id, '/'));
+        $d2 = explode('/', ltrim($app['request']->getPathInfo(), '/'));
+        $cond = isset($d1[0], $d2[0]) && !empty($d1[0]) && $d1[0]==$d2[0];
+        return $id == $app['request']->getPathInfo() || $cond ?'class="active"':'';
+    }));
+    $twig->addFilter(new \Twig_SimpleFilter('slugify', function($text){
+        $s = S::create($text);
+        return $s->slugify();
     }));
     return $twig;
 }));
-$app['misc'] = $app->share(function() use ($app) {
-    return new misc($app);
-});
 $app['user'] = $app->share(function() use ($app) {
     return new user($app);
 });

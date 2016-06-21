@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/profesori')}}">Profesori</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="thepage">
+        <div class="cin">
+            <div class="thecontent">
+                <div class="profilepic right" style="background-image:url('{{asset('img/profile/'~prof.img)}}')"></div>
+                <h2>{{prof.name}}</h2>
+                <p class="n">{{prof.name}} - {{prof.data.statut}} la {{app['conf.title']}}.</p>
+                <p class="nn">Specializări:</p>
+                <ul>
+                    {% for sp in prof.data.spec %} <li>{{sp}}</li> {% endfor %}
+                </ul>
+                <!-- <div class="prof-cont">
+                    <div>
+                        <h5>{{prof.data.statut}}</h5>
+                        <h3>{{prof.name}}</h3>
+                        <h4></h4>
+                    </div>
+                </div> -->
+            </div>
+            {% include 'part/sidebar.twig' %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

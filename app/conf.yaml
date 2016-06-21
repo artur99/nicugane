@@ -1,11 +1,11 @@
 debug: true
 
-conf.title: 'Colegiul Național "Nicu Gane" Fălticeni'
+conf.title: 'Colegiul Național „Nicu Gane” Fălticeni'
 
 conf.db.host: localhost
 conf.db.user: root
-conf.db.pass: password
-conf.db.name: daysplit
+conf.db.pass:
+conf.db.name: nicugane
 
 conf.facebook.app_id: 1234567890123
 conf.facebook.app_secret: 1234567890qwertyuiop1234567890qw

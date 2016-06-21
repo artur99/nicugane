@@ -4,6 +4,7 @@
   "description": "Lorem ipsum...........",
   "main": "Gruntfile.js",
   "dependencies": {
+    "bower": "^1.7.9",
     "grunt": "^0.4.5",
     "grunt-bower-concat": "^1.0.0",
     "grunt-contrib-clean": "^1.0.0",

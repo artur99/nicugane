@@ -2,9 +2,9 @@
     <div class="cin">
         <a href="{{l('/oferta-educationala')}}" {{mact2('/oferta-educationala')|raw}}>Oferta Educațională</a>
         <a href="{{l('/istoric')}}" {{mact2('/istoric')|raw}}>Istoric</a>
-        <a href="#">Galerie Media</a>
-        <a href="#">Profesori</a>
-        <a href="#">Contul meu</a>
+        <a href="{{l('/galerie')}}" {{mact2('/galerie')|raw}}>Galerie Media</a>
+        <a href="{{l('/profesori')}}" {{mact2('/profesori')|raw}}>Profesori</a>
+        <a href="{{l('/cont')}}" {{mact2('/cont')|raw}}>Contul meu</a>
         <form action="">
             <input id="search1" type="text" placeholder="Caută în site...">
             <input type="submit" class="hide">
@@ -19,11 +19,11 @@
         <div class="rightmenu">
             <div class="menuitm{{mact('/')}}"><a href="{{l('/')}}">Acasă</a></div>
             <div class="menuitm{{mact('/despre-noi')}}"><a href="{{l('/despre-noi')}}">Despre noi</a></div>
-            <div class="menuitm"><a href="#">Avizier</a></div>
-            <div class="menuitm"><a href="#">Activități</a></div>
-            <div class="menuitm"><a href="#">Evenimente</a></div>
+            <div class="menuitm"><a href="http://avizier.nicugane.ro">Avizier</a></div>
+            <div class="menuitm{{mact('/activitati')}}"><a href="{{l('/activitati')}}">Activități</a></div>
+            <div class="menuitm{{mact('/evenimente')}}"><a href="{{l('/evenimente')}}">Evenimente</a></div>
             <div class="menuitm"><a href="#">Catedre</a></div>
-            <div class="menuitm"><a href="#">Contact</a></div>
+            <div class="menuitm{{mact('/contact')}}"><a href="{{l('/contact')}}">Contact</a></div>
         </div>
         <div class="mobilemenu">
             <div class="mobilemenu_header">
@@ -37,14 +37,14 @@
                 <a href="{{l('/oferta-educationala')}}" {{mact2('/oferta-educationala')|raw}}>Oferta Educațională</a>
                 <a href="{{l('/despre-noi')}}" {{mact2('/despre-noi')|raw}}>Despre noi</a>
                 <a href="{{l('/istoric')}}" {{mact2('/istoric')|raw}}>Istoric</a>
-                <a href="#">Galerie Media</a>
-                <a href="#">Avizier</a>
-                <a href="#">Activități</a>
-                <a href="#">Evenimente</a>
+                <a href="{{l('/galerie')}}" {{mact2('/galerie')|raw}}>Galerie Media</a>
+                <a href="http://avizier.nicugane.ro">Avizier</a>
+                <a href="{{l('/activitati')}}" {{mact2('/activitati')|raw}}>Activități</a>
+                <a href="{{l('/evenimente')}}" {{mact2('/evenimente')|raw}}>Evenimente</a>
                 <a href="#">Catedre</a>
-                <a href="#">Contact</a>
-                <a href="#">Profesori</a>
-                <a href="#">Contul meu</a>
+                <a href="{{l('/contact')}}" {{mact2('/contact')|raw}}>Contact</a>
+                <a href="{{l('/profesori')}}" {{mact2('/profesori')|raw}}>Profesori</a>
+                <a href="{{l('/cont')}}" {{mact2('/cont')|raw}}>Contul meu</a>
             </div>
         </div>
     </div>

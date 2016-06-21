@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="sec proflist">
+        <div class="cin">
+
+            <h2 class="subtitle">Profesorii</h2>
+            <div class="lines"></div>
+            {% for prof in profs %}
+                <a href="{{l('/profesori/'~prof.id~'-'~(prof.name|slugify))}}" class="profitem light-effect-p z-depth-1">
+                    <div class="prof-header light-effect" style="background-image:url('{{asset('img/profile/'~prof.img)}}')"></div>
+                    <div class="prof-cont">
+                        <div>
+                            <h5>{{prof.data.statut}}</h5>
+                            <h3>{{prof.name}}</h3>
+                            <h4>{{prof.data.spec|join(' & ')}}</h4>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>
