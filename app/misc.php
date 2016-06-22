@@ -36,5 +36,7 @@ class misc{
     public function shorten($text){
         $text = strtolower($text);
         if($text=='profesor') return 'Prof.';
+        if($text=='director') return 'Dir.';
+        if($text=='director adjunct') return 'Adj.';
     }
 }

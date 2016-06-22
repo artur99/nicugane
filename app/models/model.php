@@ -62,6 +62,21 @@ class model{
         return $res[0];
 
     }
+
+    function get_event($eid = 0){
+        $eid = intval($eid);
+        if($eid==0) return false;
+
+        $q = $this->db->createQueryBuilder();
+        $q->select('*');
+        $q->from('events', '');
+        $q->where('id = ?')->setParameter(0, $eid);
+        $res = $q->execute()->fetchAll();
+        
+        if(sizeof($res)==0) return false;
+        return $res[0];
+
+    }
 }
 
 $model = new model($app);

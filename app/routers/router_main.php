@@ -70,14 +70,14 @@ $router['profesor'] = function($data, $param)use($app, $model){
 
 $router['activitate'] = function($data, $param)use($app, $model){
     $pdata = $model->get_activ(intval(explode('-', $param)[0]));
-    if(!$pdata) throw new NotFoundHttpException('Acest profesor nu există');
+    if(!$pdata) throw new NotFoundHttpException('Această activitate nu există');
 
     $title = $pdata['title'];
     // $descr = $pdata['name'].' - '.$pdata['data']->statut.' la '.$app['conf.title'].', cu specializările: '.implode(', ', $pdata['data']->spec);
     $twigdata['title'] = $title;
     $twigdata['activ'] = $pdata;
 
-    $seo = new SEO('profesor', $app);
+    $seo = new SEO('activitate', $app);
     $seo->setTitle($title);
     $seo->setDescr("temp");
 
@@ -88,22 +88,22 @@ $router['activitate'] = function($data, $param)use($app, $model){
 };
 
 $router['eveniment'] = function($data, $param)use($app, $model){
-    $pdata = $model->get_prof(intval(explode('-', $param)[0]));
-    if(!$pdata) throw new NotFoundHttpException('Acest profesor nu există');
+    $pdata = $model->get_event(intval(explode('-', $param)[0]));
+    if(!$pdata) throw new NotFoundHttpException('Acest eveniment nu există');
 
-    $title = misc::shorten($pdata['data']->statut).' '.$pdata['name'];
-    $descr = $pdata['name'].' - '.$pdata['data']->statut.' la '.$app['conf.title'].', cu specializările: '.implode(', ', $pdata['data']->spec);
+    $title = $pdata['title'];
+    // $descr = $pdata['name'].' - '.$pdata['data']->statut.' la '.$app['conf.title'].', cu specializările: '.implode(', ', $pdata['data']->spec);
     $twigdata['title'] = $title;
-    $twigdata['prof'] = $pdata;
+    $twigdata['event'] = $pdata;
 
-    $seo = new SEO('profesor', $app);
+    $seo = new SEO('eveniment', $app);
     $seo->setTitle($title);
-    $seo->setDescr($descr);
+    $seo->setDescr("temp");
 
     $twigdata['meta'] = $seo->getAll();
     // $twigdata['profs'] = $model->get_profs();
 
-    return $app['twig']->render('profesor.twig', $twigdata);
+    return $app['twig']->render('eveniment.twig', $twigdata);
 };
 
 

@@ -12,7 +12,7 @@
             <span class="bcnav">
                 <a href="{{l('/')}}">CNNG</a>
                 <i class="material-icons">&#xE315;</i>
-                <a href="{{l('/activitati')}}">Activități</a>
+                <a href="{{l('/evenimente')}}">Evenimente</a>
                 <i class="material-icons">&#xE315;</i>
                 <a href="#">{{title}}</a>
             </span>
@@ -21,11 +21,11 @@
     <div class="thepage">
         <div class="cin">
             <div class="thecontent">
-                {% if activ.image %}
-                    <img src="{{activ.image}}" alt="" class="cover1">
+                {% if event.image %}
+                    <img src="{{event.image}}" alt="" class="cover1">
                 {% endif %}
                 <br>
-                {{activ.content|raw}}
+                {{event.content|raw}}
             </div>
             {% include 'part/sidebar.twig' %}
         </div>
