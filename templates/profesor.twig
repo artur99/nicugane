@@ -22,12 +22,16 @@
         <div class="cin">
             <div class="thecontent">
                 <div class="profilepic right" style="background-image:url('{{asset('img/profile/'~prof.img)}}')"></div>
-                <h2>{{prof.name}}</h2>
+                <h2>{{title}}</h2>
                 <p class="n">{{prof.name}} - {{prof.data.statut}} la {{app['conf.title']}}.</p>
                 <p class="nn">Specializări:</p>
                 <ul>
                     {% for sp in prof.data.spec %} <li>{{sp}}</li> {% endfor %}
                 </ul>
+                {% if prof.data.grad is defined and prof.data.grad %}
+                <p></p>
+                <p>Grad didactic: {{prof.data.grad}}</p>
+                {% endif %}
                 <!-- <div class="prof-cont">
                     <div>
                         <h5>{{prof.data.statut}}</h5>

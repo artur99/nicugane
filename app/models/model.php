@@ -72,7 +72,7 @@ class model{
         $q->from('events', '');
         $q->where('id = ?')->setParameter(0, $eid);
         $res = $q->execute()->fetchAll();
-        
+
         if(sizeof($res)==0) return false;
         return $res[0];
 
