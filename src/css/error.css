@@ -1,5 +1,8 @@
 .landing.error .header{
     background: #e53935;
+    height: 100%;
+    color: white;
+    padding: 10vh 0;
 }
 
 .landing.error .header .headerline{

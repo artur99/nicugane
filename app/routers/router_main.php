@@ -110,10 +110,14 @@ $router['eveniment'] = function($data, $param)use($app, $model){
 
 
 
-$router_account = function(Request $request)use($app){
-    if($uid = $app['user']->loggedin()) return $app['twig']->render('account2.twig', ['user'=>$app['user']->get($uid, 'name,email')]);
-    if($uid = $app['user']->loggedin_cookie($request)) return $app['twig']->render('account2.twig', ['user'=>$app['user']->get($uid, 'name,email'), 'relogin'=>1]);
-    return $app['twig']->render('account.twig');
+$router['cont'] = function()use($app){
+    // if($uid = $app['user']->loggedin_cookie($request)) return $app['twig']->render('account2.twig', ['user'=>$app['user']->get($uid, 'name,email'), 'relogin'=>1]);
+    $twigdata['title'] = 'Contul meu';
+    if($uid = $app['user']->loggedin()){
+        $twigdata['user'] = $app['user']->get($uid, 'name,email');
+        return $app['twig']->render('cont_logat.twig', $twigdata);
+    }
+    return $app['twig']->render('cont.twig', $twigdata);
 };
 
 $router_dash = function()use($app,$model){

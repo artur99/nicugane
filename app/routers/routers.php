@@ -19,6 +19,7 @@ $app->match('/activitati', $router_helper('activitati'));
 $app->match('/activitati/{param}', $router_helper('activitate'));
 $app->match('/evenimente', $router_helper('evenimente'));
 $app->match('/evenimente/{param}', $router_helper('eveniment'));
+$app->match('/cont', $router_helper('cont'));
 
 // $app->match('/evenimente', $router_helper('proto'));
 $app->match('/catedre', $router_helper('proto'));
