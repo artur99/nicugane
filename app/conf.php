@@ -24,6 +24,3 @@ $app['db.options'] = array(
     'dbname' => $app['conf.db.name'],
     'charset'   => 'utf8'
 );
-
-putenv('FACEBOOK_APP_ID='.$app['conf.facebook.app_id']);
-putenv('FACEBOOK_APP_SECRET='.$app['conf.facebook.app_secret']);
