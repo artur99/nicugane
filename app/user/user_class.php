@@ -35,7 +35,7 @@ class user{
     public function check_auth($em, $pw){
         if(!misc::validate(['email'=>$em],'email')) return 0;
         $pw = misc::encode($pw);
-        $q = $this->db->executeQuery("SELECT id FROM users WHERE type = 1 AND email = ? AND password = ? LIMIT 1", [$em, $pw]);
+        $q = $this->db->executeQuery("SELECT id FROM users WHERE email = ? AND password = ? LIMIT 1", [$em, $pw]);
         return $q->fetchAll();
     }
     public function login_validate($data){
@@ -48,7 +48,7 @@ class user{
     }
     public function login_mode1($uid, $keepin = 0, JsonResponse &$resp = null){
         $this->db->executeQuery("UPDATE users SET ldate = UNIX_TIMESTAMP(NOW()) WHERE id = ? LIMIT 1", [(int)$uid]);
-        $uq = $this->db->executeQuery("SELECT type,name,email,image,description,fbid FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
+        $uq = $this->db->executeQuery("SELECT email,prof,admin,img,fb_id,priority,data,rdate FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
         $udata = $uq->fetch();
         $udata['id'] = $uid;
         $this->session->set('user', $udata);

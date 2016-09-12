@@ -333,6 +333,13 @@ html,body{
     color: #2071EE;
     background-position: right -40px top 0px;
 }
+.btn1.disabled,.btn2.disabled{
+    border: 2px solid #DFDFDF!important;
+    background: #DFDFDF!important;
+    color: #9F9F9F!important;
+    outline: none!important;
+    cursor: default;
+}
 .smallbtn{
     display: inline-block;
     padding: 3px 10px;
