@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="sec account">
+        <div class="cin">
+            <div class="row">
+                <div class="col l6 m12 s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="tinyh2">Despre contul meu</h2>
+                            Bine ai venit, <strong>{{user.name}}</strong>! <br><br>
+                            <p>Detalii despre cont:</p>
+                            <p>
+                                <strong>Nume:</strong> {{user.name}} <br>
+                                {% if user.email is defined and user.email %}<strong>Email:</strong> {{user.email}} <br> {% endif %}
+                                {% if user.ldate is defined and user.ldate %}<strong>Ultima logare:</strong> {{user.ldate|date("d.m.Y H:i")}} <br> {% endif %}
+                                <strong>Tip Cont:</strong> {{user.prof?'Profesor':'Elev'}}{{user.admin?' (Administrator)'}} <br>
+                                {% if user.data.statut is defined and user.data.statut != 'Profesor' %}{{user.data.statut}}{% endif %}
+                                {% if user.data.spec is defined %}<strong>Specializări:</strong> {{user.data.spec|join(', ')}}{% endif %}
+                                {% if user.data.grad is defined %}<strong>Grad:</strong> {{user.data.grad}}{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% if user.prof %}
+                <div id="modal_catd" class="modal">
+                    <div class="modal-content">
+                        <h4>Modal Header</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                </div>
+                <div class="col l6 m12 s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="tinyh2">Panou profesor</h2>
+                            <p>
+                                <strog>Aveți acces la:</strong><br>
+                                {% for catd in user.prof_catds %}
+                                    <a class="btn2 smallbtn modal-trigger" data-catdid="{{catd.id}}" href="#modal_catd">Catedra de {{catd.name}}</a>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="col l6 m12 s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <p>asdf</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

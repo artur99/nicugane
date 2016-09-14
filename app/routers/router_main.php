@@ -114,7 +114,11 @@ $router['cont'] = function()use($app){
     // if($uid = $app['user']->loggedin_cookie($request)) return $app['twig']->render('account2.twig', ['user'=>$app['user']->get($uid, 'name,email'), 'relogin'=>1]);
     $twigdata['title'] = 'Contul meu';
     if($uid = $app['user']->loggedin()){
-        $twigdata['user'] = $app['user']->get($uid, 'name,img,email,data,rdate,prof,admin');
+        $twigdata['user'] = $app['user']->get($uid, 'id,name,img,email,data,rdate,prof,admin');
+        $twigdata['user']['data'] = @json_decode($twigdata['user']['data']);
+        if($twigdata['user']['prof']){
+            $twigdata['user']['prof_catds'] = $app['user']->get_catds($twigdata['user']['id']);
+        }
         return $app['twig']->render('cont_logat.twig', $twigdata);
     }
     return $app['twig']->render('cont.twig', $twigdata);

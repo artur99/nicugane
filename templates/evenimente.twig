@@ -16,26 +16,28 @@
             </span>
         </div>
     </div>
-    <div class="sec proflist">
+    <div class="sec">
         <div class="cin">
 
             <h2 class="subtitle">Evenimente</h2>
             <div class="lines"></div>
-            {% for activ in data %}
-                {% if activ.link %}
-                    <a href="{{activ.link}}" class="crlistitem light-effect-p z-depth-1">
-                {% else %}
-                    <a href="{{l('/evenimente/'~activ.id~'-'~(activ.title|slugify))}}" class="crlistitem light-effect-p z-depth-1">
-                {% endif %}
-                    <div class="crlist-header light-effect" style="{{activ.image ? "background-image:url('"~activ.image~"')"}}"></div>
-                    <div class="crlist-cont">
-                        <h3>{{activ.title}}</h3>
-                        <div>
-                            <p>{{activ.content|striptags|truncate(100)}}</p>
+            <div class="crlist">
+                {% for activ in data %}
+                    {% if activ.link %}
+                        <a href="{{activ.link}}" class="crlistitem light-effect-p z-depth-1">
+                    {% else %}
+                        <a href="{{l('/evenimente/'~activ.id~'-'~(activ.title|slugify))}}" class="crlistitem light-effect-p z-depth-1">
+                    {% endif %}
+                        <div class="crlist-header light-effect" style="{{activ.image ? "background-image:url('"~activ.image~"')"}}"></div>
+                        <div class="crlist-cont">
+                            <h3>{{activ.title}}</h3>
+                            <div>
+                                <p>{{activ.content|striptags|truncate(100)}}</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            {% endfor %}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

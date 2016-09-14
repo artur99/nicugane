@@ -47,8 +47,8 @@ class user{
         return $res;
     }
     public function login_mode1($uid, $keepin = 0, JsonResponse &$resp = null){
+        $uq = $this->db->executeQuery("SELECT email,prof,admin,img,fb_id,priority,data,rdate,ldate FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
         $this->db->executeQuery("UPDATE users SET ldate = UNIX_TIMESTAMP(NOW()) WHERE id = ? LIMIT 1", [(int)$uid]);
-        $uq = $this->db->executeQuery("SELECT email,prof,admin,img,fb_id,priority,data,rdate FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
         $udata = $uq->fetch();
         $udata['id'] = $uid;
         $this->session->set('user', $udata);
@@ -164,10 +164,9 @@ class user{
             $this->db->executeQuery("UPDATE users SET password = ? WHERE id = ? LIMIT 1", [$psw, $uid]);
         }
     }
-    public function in_group($gid){
-        $uid = (int)$this->getc('id');
-        $gid = (int)$gid;
-        $qr = $this->db->executeQuery("SELECT COUNT(1) FROM group_members WHERE user_id = ? AND group_id = ? LIMIT 1", [$uid, $gid])->fetch()['COUNT(1)'];
-        return $qr?true:false;
+    public function get_catds($uid){
+        $uid = intval($uid);
+        $dt = $this->db->executeQuery("SELECT t1.* FROM catds t1 JOIN catd_roles t2 ON t1.id = t2.catd_id WHERE t2.user_id = ?", [$uid])->fetchAll();
+        return $dt;
     }
 }

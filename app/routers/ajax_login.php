@@ -25,6 +25,7 @@ $router_ajax_login = function(Request $r)use($app){
         $keepin = isset($pfdata['keepin'])&&$pfdata['keepin']?1:0;
         $app['user']->login_mode1($data['id'], $keepin, $resp);
         $res['type'] = 'success';
+        $res['text'] = 'Conectat cu succes';
     }
     $resp->setData($res);
     return $resp;
