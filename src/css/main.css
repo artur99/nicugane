@@ -350,7 +350,7 @@ html,body{
 }
 .subtitle{
     font-family: 'Raleway', sans-serif;
-    font-size: 38px;
+    font-size: 36px;
     margin: 0;
     font-weight: bold;
     text-transform: uppercase;
@@ -715,6 +715,10 @@ html,body{
 .crlistitem .crlist-cont p{
     font-size: 16px;
     margin: 0;
+}
+.crlist-bigger .crlistitem .crlist-cont{
+    height: 80px;
+    justify-content: center;
 }
 .cover1{
     max-width: 95%;

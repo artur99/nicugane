@@ -16,10 +16,10 @@
             </span>
         </div>
     </div>
-    <div class="sec crlist">
+    <div class="sec">
         <div class="cin">
 
-            <h2 class="subtitle">Activități</h2>
+            <h2 class="subtitle">Activitățile Noastre</h2>
             <div class="lines"></div>
             <div class="crlist">
                 {% for activ in data %}
@@ -28,7 +28,7 @@
                     {% else %}
                         <a href="{{l('/activitati/'~activ.id~'-'~(activ.title|slugify))}}" class="crlistitem light-effect-p z-depth-1">
                     {% endif %}
-                        <div class="crlist-header light-effect" style="{{activ.image ? "background-image:url('"~activ.image~"')"}}"></div>
+                        <div class="crlist-header light-effect" {{activ.image ? ('style="'~gen_bgcss(activ.image)~'"')|raw}}></div>
                         <div class="crlist-cont">
                             <h3>{{activ.title}}</h3>
                             <div>

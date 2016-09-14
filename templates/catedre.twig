@@ -19,21 +19,14 @@
     <div class="sec">
         <div class="cin">
 
-            <h2 class="subtitle">Evenimentele Noastre</h2>
+            <h2 class="subtitle">Catedre</h2>
             <div class="lines"></div>
-            <div class="crlist">
+            <div class="crlist crlist-bigger">
                 {% for item in data %}
-                    {% if item.link %}
-                        <a href="{{item.link}}" class="crlistitem light-effect-p z-depth-1">
-                    {% else %}
-                        <a href="{{l('/evenimente/'~item.id~'-'~(item.title|slugify))}}" class="crlistitem light-effect-p z-depth-1">
-                    {% endif %}
+                    <a href="{{l('/catedre/'~item.id~'-'~(item.slug))}}" class="crlistitem light-effect-p z-depth-1">
                         <div class="crlist-header light-effect" {{item.image ? ('style="'~gen_bgcss(item.image)~'"')|raw}}></div>
                         <div class="crlist-cont">
-                            <h3>{{item.title}}</h3>
-                            <div>
-                                <p>{{item.content|striptags|truncate(100)}}</p>
-                            </div>
+                            <h3>{{item.name}}</h3>
                         </div>
                     </a>
                 {% endfor %}

@@ -48,6 +48,11 @@ $router['evenimente'] = function($array_data)use($app, $model){
     $twigdata['data'] = $model->get_events();
     return $app['twig']->render('evenimente.twig', $twigdata);
 };
+$router['catedre'] = function($array_data)use($app, $model){
+    $twigdata['title'] = 'Catedre';
+    $twigdata['data'] = $model->get_catedre();
+    return $app['twig']->render('catedre.twig', $twigdata);
+};
 
 $router['profesor'] = function($data, $param)use($app, $model){
     $pdata = $model->get_prof(intval(explode('-', $param)[0]));

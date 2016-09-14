@@ -7,6 +7,9 @@ $app['twig.assets'] = '/assets/';
 $app['conf.url'] = function($app){
     return $app['request']->getScheme() . '://' . $app['request']->getHttpHost() . $app['request']->getBasePath();
 };
+$app['conf.url_path'] = function($app){
+    return $app['request']->getBasePath();
+};
 
 
 $config = (new Symfony\Component\Yaml\Parser())->parse(file_get_contents($app['conf.path']."/app/conf.yaml"));

@@ -48,6 +48,13 @@ class model{
         $res = $q->execute()->fetchAll();
         return $res;
     }
+    function get_catedre(){
+        $q = $this->db->createQueryBuilder();
+        $q->select('*');
+        $q->from('catds', '');
+        $res = $q->execute()->fetchAll();
+        return $res;
+    }
 
     function get_activ($aid = 0){
         $aid = intval($aid);

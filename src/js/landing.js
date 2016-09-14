@@ -28,6 +28,7 @@ function run_counter_effects(){
     });
 }
 $(document).ready(function(){
+    if(requesturi != '/') return;
     $(window).scroll(check_counter_run);
     check_counter_run();
 })
