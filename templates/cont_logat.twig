@@ -53,8 +53,8 @@
                             <h2 class="tinyh2">Panou profesor</h2>
                             <p>
                                 <strog>Aveți acces la:</strong><br>
-                                {% for catd in user.prof_catds %}
-                                    <a class="btn2 smallbtn modal-trigger" data-catdid="{{catd.id}}" href="#modal_catd">Catedra de {{catd.name}}</a>
+                                {% for item in user.prof_catds %}
+                                    <a href="{{l('/catedre/'~item.id~'-'~(item.slug))}}" class="btn2 smallbtn">Catedra de {{item.name}}</a>
                                 {% endfor %}
                             </p>
                         </div>

@@ -531,17 +531,16 @@ html,body{
 
 .thepage{
     overflow: hidden;
-}
-.thepage .thecontent{
-    width: 74%;
-    float: left;
+    padding: 25px 0;
 }
 .thepage .sidebar{
     width: 24%;
     float: right;
 }
 .thepage .thecontent{
-    padding: 25px 1px;
+    width: 74%;
+    float: left;
+    padding: 20px 25px;
     padding-bottom: 30px;
     font-size: 19px;
     font-family: Roboto, Calibri, sans-serif;
