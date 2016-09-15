@@ -82,7 +82,34 @@ class model{
 
         if(sizeof($res)==0) return false;
         return $res[0];
+    }
 
+    function get_catd_data($cid){
+        $cid = intval($cid);
+        if($cid==0) return false;
+
+        $q = $this->db->createQueryBuilder();
+        $q->select('*');
+        $q->from('catds', '');
+        $q->where('id = ?')->setParameter(0, $cid);
+        $res = $q->execute()->fetchAll();
+
+        if(sizeof($res)==0) return false;
+        return $res[0];
+    }
+
+    function get_catd_art($cid){
+        $cid = intval($cid);
+        if($cid==0) return false;
+
+        $res = $this->db->executeQuery("
+            SELECT catd_articles.*, users.email AS user_email, users.name AS user_name, users.image AS user_img, users.data AS user_data
+            FROM catd_articles
+            LEFT JOIN users ON users.id = catd_articles.user_id WHERE catd_articles.catd_id = ?
+            ORDER BY pinned DESC, date DESC
+        ", [$cid])->fetchAll();
+
+        return $res;
     }
 }
 

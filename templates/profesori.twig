@@ -21,14 +21,14 @@
 
             <h2 class="subtitle">Profesorii</h2>
             <div class="lines"></div>
-            {% for prof in profs %}
-                <a href="{{l('/profesori/'~prof.id~'-'~(prof.name|slugify))}}" class="profitem light-effect-p z-depth-1">
-                    <div class="prof-header light-effect" style="{{prof.img?'background-image:url(\''~asset('img/profile/'~prof.img)~'\')'}}"></div>
+            {% for item in profs %}
+                <a href="{{l('/profesori/'~item.id~'-'~(item.name|slugify))}}" class="profitem light-effect-p z-depth-1">
+                    <div class="prof-header light-effect" {{item.image ? ('style="'~gen_bgcss(item.image)~'"')|raw}}"></div>
                     <div class="prof-cont">
                         <div>
-                            <h5>{{prof.data.statut}}</h5>
-                            <h3>{{prof.name}}</h3>
-                            <h4>{{prof.data.spec|join(' & ')}}</h4>
+                            <h5>{{item.data.statut}}</h5>
+                            <h3>{{item.name}}</h3>
+                            <h4>{{item.data.spec|join(' & ')}}</h4>
                         </div>
                     </div>
                 </a>

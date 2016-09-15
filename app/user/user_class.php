@@ -47,7 +47,7 @@ class user{
         return $res;
     }
     public function login_mode1($uid, $keepin = 0, JsonResponse &$resp = null){
-        $uq = $this->db->executeQuery("SELECT email,prof,admin,img,fb_id,priority,data,rdate,ldate FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
+        $uq = $this->db->executeQuery("SELECT email,prof,admin,image,fb_id,priority,data,rdate,ldate FROM users WHERE id = ? LIMIT 1", [(int)$uid]);
         $this->db->executeQuery("UPDATE users SET ldate = UNIX_TIMESTAMP(NOW()) WHERE id = ? LIMIT 1", [(int)$uid]);
         $udata = $uq->fetch();
         $udata['id'] = $uid;

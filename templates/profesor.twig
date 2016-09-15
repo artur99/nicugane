@@ -21,7 +21,7 @@
     <div class="thepage">
         <div class="cin">
             <div class="thecontent card">
-                <div class="profilepic right" style="background-image:url('{{asset('img/profile/'~prof.img)}}')"></div>
+                <div class="profilepic right" {{prof.image ? ('style="'~gen_bgcss(prof.image)~'"')|raw}}></div>
                 <h2>{{title}}</h2>
                 <p class="n">{{prof.name}} - {{prof.data.statut}} la {{app['conf.title']}}.</p>
                 <p class="nn">Specializări:</p>

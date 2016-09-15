@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/evenimente')}}">Catedre</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{title}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="thepage">
+        <div class="cin">
+            <div class="thecontent">
+                <div class="card">
+                    <div class="card-content">
+                        
+                        <h2 class="tinyh2">Lorem ipsum doloe</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut...</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="tinyh2">Lorem ipsum doloe</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                    </div>
+                </div>
+            </div>
+            {% include 'part/sidebar.twig' %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

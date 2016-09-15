@@ -17,6 +17,19 @@ function a_link($asset){
     if(strpos($asset, '://') !== false) return $asset;
     return $app['conf.url'].$app['twig.assets'].ltrim($asset, '/');
 }
+function a_image($loc){
+    global $app;
+    if(substr($loc, 0, 7) == 'http://' || substr($loc, 0, 8) == 'https://'){
+        $link = $loc;
+    }else{
+        if(substr($loc, 0, 1) == '/' || substr($loc, 0, 2) == './' || substr($loc, 0, 2) == '..')
+            $link = $loc;
+        else{
+            $link = $app['conf.url_path'].$app['twig.assets'].ltrim('img/'.$loc, '/');
+        }
+    }
+    return $link;
+}
 function global_patches($app){
     global $fb;
     $fb = new Facebook\Facebook(array(
@@ -56,16 +69,11 @@ $app['twig'] = $app->share($app->extend('twig', function($twig,$app){
         $cond = isset($d1[0], $d2[0]) && !empty($d1[0]) && $d1[0]==$d2[0];
         return $id == $app['request']->getPathInfo() || $cond ?'class="active"':'';
     }));
+    $twig->addFunction(new \Twig_SimpleFunction('img', function($loc)use($app){
+        return a_image($loc);
+    }));
     $twig->addFunction(new \Twig_SimpleFunction('gen_bgcss', function($loc)use($app){
-        if(substr($loc, 0, 7) == 'http://' || substr($loc, 0, 8) == 'https://'){
-            $link = $loc;
-        }else{
-            if(substr($loc, 0, 1) == '/' || substr($loc, 0, 2) == './' || substr($loc, 0, 2) == '..')
-                $link = $loc;
-            else{
-                $link = $app['conf.url_path'].$app['twig.assets'].ltrim($loc, '/');
-            }
-        }
+        $link = a_image($loc);
         return 'background-image: url(\''.$link.'\')';
     }));
     $twig->addFilter(new \Twig_SimpleFilter('slugify', function($text){
