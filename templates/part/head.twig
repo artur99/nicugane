@@ -13,6 +13,15 @@
     {% set ctitle = title is defined?title~' | '~app['conf.title']:app['conf.title']%}
 {% endif %}
 <title>{{ctitle}}</title>
-{% if meta is defined %}{% for key,itm in meta %}
-<meta name="{{key}}" content="{{itm}}">
-{% endfor %}{% endif %}
+{% if meta is defined %}
+    {% if meta.meta is defined %}
+        {% for key,itm in meta.meta %}
+        <meta name="{{key}}" content="{{itm}}">
+        {% endfor %}
+    {% endif %}
+    {% if meta.og is defined %}
+        {% for key,itm in meta.og %}
+        <meta property="og:{{key}}" content="{{itm}}">
+        {% endfor %}
+    {% endif %}
+{% endif %}
