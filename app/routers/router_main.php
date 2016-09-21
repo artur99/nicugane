@@ -120,7 +120,7 @@ $router['catedra'] = function($data, $param)use($app, $model){
     $title = 'Catedra de '.$cpdata['name'];
     // $descr = $pdata['name'].' - '.$pdata['data']->statut.' la '.$app['conf.title'].', cu specializările: '.implode(', ', $pdata['data']->spec);
     $twigdata['title'] = $title;
-    $twigdata['pdata'] = $cpdata;
+    $twigdata['cpdata'] = $cpdata;
     $twigdata['catddata'] = $pdata;
 
     $seo = new SEO('catedra', $app);

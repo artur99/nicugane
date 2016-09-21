@@ -83,12 +83,3 @@ function form_redirect(where, time, prel){
     },time);
 
 }
-$(document).on('click', '#btn-logout', function(){
-    markloading_btn('#btn-logout');
-    preloader.on();
-    ajax('account/logout', {}, function(){
-        setTimeout(function(){
-            window.location.href = '/account';
-        }, 400);
-    })
-});

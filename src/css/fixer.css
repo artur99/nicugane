@@ -133,6 +133,16 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     bottom:0;
     left:0;
 }
+.card .card-footer{
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 20px;
+}
+.material-icons{
+    display: inline;
+    vertical-align: bottom;
+    font-size: inherit;
+    line-height: inherit;
+}
 .clear{
     clear: both;
 }

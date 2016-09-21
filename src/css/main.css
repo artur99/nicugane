@@ -592,6 +592,13 @@ html,body{
     font-family: Roboto, 'Open Sans', sans-serif;
     margin-bottom: 11px;
 }
+.thepage .thecontent h3.semititle{
+    color: rgba(0, 0, 0, .5);
+    font-style: italic;
+    text-align: center;
+    font-size: 22px;
+    margin: 10vh 0;
+}
 .thecontent ul li{
     list-style-type: disc;
     margin-left: 45px;
@@ -727,6 +734,20 @@ html,body{
 }
 .cardgroup1{
 
+}
+.cardart .card-content h2.tinyh2{
+    margin: 0;
+    margin-bottom: 15px;
+}
+.cardart .card-content p{
+    margin: 0;
+    font-size: 17px;
+}
+.cardart .card-footer{
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 35px;
+    overflow: hidden;
 }
 @media(max-width: 870px){
     .crlistitem{

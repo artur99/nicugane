@@ -16,3 +16,6 @@
         flex: 100%;
     }
 }
+.thecontent form label.active:after{
+    top: 60px;
+}

@@ -23,13 +23,14 @@
                     <div class="card">
                         <div class="card-content">
                             <h2 class="tinyh2">Despre contul meu</h2>
-                            Bine ai venit, <strong>{{user.name}}</strong>! <br><br>
+                            Bine ai venit, <strong>{{user.name}}</strong>!<br>
+                            <a href="#" id="btn-logout">(Deconectare)</a><br><br>
                             <p>Detalii despre cont:</p>
                             <p>
                                 <strong>Nume:</strong> {{user.name}} <br>
                                 {% if user.email is defined and user.email %}<strong>Email:</strong> {{user.email}} <br> {% endif %}
                                 {% if user.ldate is defined and user.ldate %}<strong>Ultima logare:</strong> {{user.ldate|date("d.m.Y H:i")}} <br> {% endif %}
-                                <strong>Tip Cont:</strong> {{user.prof?'Profesor':'Elev'}}{{user.admin?' (Administrator)'}} <br>
+                                <strong>Statut:</strong> {{user.prof?'Profesor':'Elev'}}{{user.admin?' (Administrator)'}} <br>
                                 {% if user.data.statut is defined and user.data.statut != 'Profesor' %}{{user.data.statut}}{% endif %}
                                 {% if user.data.spec is defined %}<strong>Specializări:</strong> {{user.data.spec|join(', ')}}{% endif %}
                                 {% if user.data.grad is defined %}<strong>Grad:</strong> {{user.data.grad}}{% endif %}

@@ -62,11 +62,15 @@ class user{
     public function signup_mode1($data){
         $data = misc::filter($data);
         $em = $data['email'];
+        $nm = $data['name'];
         $pw = misc::encode($data['password']);
-        $this->db->executeQuery("INSERT INTO users (id, type, email, password, sdate, ldate) VALUES (NULL, 1, ?, ?, UNIX_TIMESTAMP(NOW()), UNIX_TIMESTAMP(NOW()))", [$em, $pw]);
+        $this->db->executeQuery("INSERT INTO users
+            (id, email, password, prof, admin, name, rdate, ldate, data) VALUES
+            (NULL, ?, ?, 0, 0, ?, UNIX_TIMESTAMP(NOW()), UNIX_TIMESTAMP(NOW()), ?)",
+        [$em, $pw, $nm, '{}']);
         $lid = $this->db->lastInsertId();
         $this->login_mode1($lid, 0);
-        $this->mailcls->send_signup($data['email']);
+        @$this->mailcls->send_signup($data['email']);
         return 1;
     }
     public function signup_mode2($data){
