@@ -23,7 +23,7 @@
             <div class="lines"></div>
             {% for item in profs %}
                 <a href="{{l('/profesori/'~item.id~'-'~(item.name|slugify))}}" class="profitem light-effect-p z-depth-1">
-                    <div class="prof-header light-effect" {{item.image ? ('style="'~gen_bgcss(item.image)~'"')|raw}}"></div>
+                    <div class="prof-header light-effect" {{item.image ? ('style="'~gen_bgcss(item.image)~'"')|raw}}></div>
                     <div class="prof-cont">
                         <div>
                             <h5>{{item.data.statut}}</h5>

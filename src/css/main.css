@@ -749,6 +749,10 @@ html,body{
     line-height: 35px;
     overflow: hidden;
 }
+.cardart .card-footer small{
+    /*font-style: italic;*/
+    font-size: 13px;
+}
 @media(max-width: 870px){
     .crlistitem{
         width: 45%;

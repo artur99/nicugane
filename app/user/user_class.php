@@ -30,6 +30,7 @@ class user{
         if(!$cookies->has('token')) return false;
         $q = $this->db->executeQuery("SELECT id FROM users WHERE token = ? LIMIT 1", [(string)$cookies->get('token')])->fetch();
         if(!isset($q['id'])) return false;
+        
         return $this->login_mode1($q['id'], 1, $resp);
     }
     public function check_auth($em, $pw){

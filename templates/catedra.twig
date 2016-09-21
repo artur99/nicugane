@@ -29,7 +29,18 @@
                         <p>{{item.content|striptags|truncate(250)}}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#">Prof. Dana Anton</a>
+                        {% if item.user_prof %}
+                        <a href="{{l('/profesori/'~item.user_id~'-'~(item.user_name|slugify))}}">
+                            <div class="prof_ico siz32" {{item.user_image ? ('style="'~gen_bgcss(item.user_image)~'"')|raw}}></div>
+                            {{item.user_data.statut is defined?item.user_data.statut|shorten}} {{item.user_name}}
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <div class="prof_ico siz32" {{item.user_image ? ('style="'~gen_bgcss(item.user_image)~'"')|raw}}></div>
+                            {{item.user_data.statut is defined?item.user_data.statut|shorten}} {{item.user_name}}
+                        </a>
+                        {% endif %}
+                        <small>a postat la {{item.date|date("H:i, d.m.Y")}}</small>
                         <a href="#" class="btn2 smallbtn right">Citește articolul</a>
                     </div>
                 </div>

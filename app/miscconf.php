@@ -80,6 +80,9 @@ $app['twig'] = $app->share($app->extend('twig', function($twig,$app){
         $s = S::create($text);
         return $s->slugify();
     }));
+    $twig->addFilter(new \Twig_SimpleFilter('shorten', function($text){
+        return misc::shorten($text);
+    }));
     return $twig;
 }));
 $app['user'] = $app->share(function() use ($app) {

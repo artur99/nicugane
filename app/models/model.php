@@ -103,12 +103,14 @@ class model{
         if($cid==0) return false;
 
         $res = $this->db->executeQuery("
-            SELECT catd_articles.*, users.email AS user_email, users.name AS user_name, users.image AS user_img, users.data AS user_data
+            SELECT catd_articles.*, users.email AS user_email, users.name AS user_name, users.image AS user_image, users.data AS user_data, users.prof AS user_prof, users.admin AS user_admin
             FROM catd_articles
             LEFT JOIN users ON users.id = catd_articles.user_id WHERE catd_articles.catd_id = ?
             ORDER BY pinned DESC, date DESC
         ", [$cid])->fetchAll();
-
+        array_walk($res, function(&$el){
+            $el['user_data'] = @json_decode($el['user_data']);
+        });
         return $res;
     }
 }
