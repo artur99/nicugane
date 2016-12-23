@@ -26,6 +26,6 @@
         "facebook/php-sdk-v4" : "~5.0"
     },
     "config": {
-        "vendor-dir": "phpvendor"
+        "vendor-dir": "_phpvendor"
     }
 }
