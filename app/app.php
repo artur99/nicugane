@@ -15,8 +15,8 @@ $app->register(new Provider\DoctrineServiceProvider());
 $app->register(new Provider\SessionServiceProvider());
 $app->register(new Provider\TwigServiceProvider());
 
-include 'app/conf.php';
-include 'app/apploader.php';
+include 'conf.php';
+include 'apploader.php';
 
 $app->before(function ($request)use($app) {
     $request->getSession()->start();
