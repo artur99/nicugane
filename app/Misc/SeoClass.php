@@ -1,6 +1,7 @@
-    <?php
+<?php
+namespace Misc;
 
-class SEO{
+class SeoClass{
     protected $type = 'index';
     protected $meta = [];
     protected $og = [];
@@ -18,7 +19,7 @@ class SEO{
         $this->og['image'] = a_link('img/cover.jpg');
     }
     public function auto($type){
-        $d = staticSEO::get($type);
+        $d = StaticSeoClass::get($type);
         foreach($d as $k=>$el){
             $this->set($k, $el);
         }

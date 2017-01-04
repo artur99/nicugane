@@ -1,6 +1,7 @@
 <?php
+namespace Misc;
 
-class staticSEO{
+class StaticSeoClass{
     function get($what){
         global $app;
         if($what == 'home'){

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{page.title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/'~section.slug)}}">{{section.name}}</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/'~section.slug~'/'~page.slug)}}" title="{{page.title|e('html_attr')}}">{{page.title|truncate(90)}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="thepage">
+        <div class="cin">
+            <div class="thecontent card">
+                {% if page.image %}
+                    <img src="{{page.image}}" alt="" class="cover1">
+                {% endif %}
+                <br>
+                {{page.content|raw}}
+            </div>
+            {% include 'part/sidebar.twig' %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

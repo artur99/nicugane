@@ -1,5 +1,7 @@
 <?php
-class mailcls{
+namespace Misc;
+
+class MailClass{
     function __construct(){
         //Nothing here...
     }

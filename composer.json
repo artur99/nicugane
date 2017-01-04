@@ -27,5 +27,12 @@
     },
     "config": {
         "vendor-dir": "_phpvendor"
+    },
+    "autoload": {
+        "psr-0": {
+            "Controllers": "app/",
+            "Models": "app/",
+            "Misc": "app/"
+        }
     }
 }

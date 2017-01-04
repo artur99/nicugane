@@ -58,12 +58,12 @@ $router['profesor'] = function($data, $param)use($app, $model){
     $pdata = $model->get_prof(intval(explode('-', $param)[0]));
     if(!$pdata) throw new NotFoundHttpException('Acest profesor nu există');
 
-    $title = misc::shorten($pdata['data']->statut).' '.$pdata['name'];
+    $title = Misc\MiscClass::shorten($pdata['data']->statut).' '.$pdata['name'];
     $descr = $pdata['name'].' - '.$pdata['data']->statut.' la '.$app['conf.title'].', cu specializările: '.implode(', ', $pdata['data']->spec);
     $twigdata['title'] = $title;
     $twigdata['prof'] = $pdata;
 
-    $seo = new SEO('profesor', $app);
+    $seo = new Misc\SeoClass('profesor', $app);
     $seo->setTitle($title);
     $seo->setDescr($descr);
 
@@ -82,7 +82,7 @@ $router['activitate'] = function($data, $param)use($app, $model){
     $twigdata['title'] = $title;
     $twigdata['activ'] = $pdata;
 
-    $seo = new SEO('activitate', $app);
+    $seo = new Misc\SeoClass('activitate', $app);
     $seo->setTitle($title);
     $seo->setDescr("temp");
 
@@ -101,7 +101,7 @@ $router['eveniment'] = function($data, $param)use($app, $model){
     $twigdata['title'] = $title;
     $twigdata['event'] = $pdata;
 
-    $seo = new SEO('eveniment', $app);
+    $seo = new Misc\SeoClass('eveniment', $app);
     $seo->setTitle($title);
     $seo->setDescr("temp");
 
@@ -123,7 +123,7 @@ $router['catedra'] = function($data, $param)use($app, $model){
     $twigdata['cpdata'] = $cpdata;
     $twigdata['catddata'] = $pdata;
 
-    $seo = new SEO('catedra', $app);
+    $seo = new Misc\SeoClass('catedra', $app);
     $seo->setTitle($title);
     $seo->setDescr("temp");
 

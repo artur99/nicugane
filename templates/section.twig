@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{section.name}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">{{section.name}}</a>
+            </span>
+        </div>
+    </div>
+    <div class="sec">
+        <div class="cin">
+
+            <h2 class="subtitle">{{section.name}}</h2>
+            <p class="sectshortdesc">{{section.description}}</p>
+            <div class="lines"></div>
+            <div class="crlist">
+                {% for page in pages %}
+                    {% if page.ext_link %}
+                        <a href="{{page.ext_link}}" class="crlistitem light-effect-p z-depth-1">
+                    {% else %}
+                    <a href="{{l('/'~section.slug~'/'~page.slug)}}" class="crlistitem light-effect-p z-depth-1" title="{{page.title|e('html_attr')}}">
+                    {% endif %}
+                        <div class="crlist-header light-effect" {{page.image ? ('style="'~gen_bgcss(page.image)~'"')|raw}}></div>
+                        <div class="crlist-cont">
+                            <h3>{{page.title|truncate(90)}}</h3>
+                            <div>
+                                <p>{{page.content|truncate(120)}}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>
