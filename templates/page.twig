@@ -22,7 +22,7 @@
         <div class="cin">
             <div class="thecontent card">
                 {% if page.image %}
-                    <img src="{{page.image}}" alt="" class="cover1">
+                    <img src="{{asset('img/'~page.image)}}" alt="" class="cover1">
                 {% endif %}
                 <br>
                 {{page.content|raw}}

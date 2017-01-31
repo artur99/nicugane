@@ -17,6 +17,6 @@ $(document).ready(function(){
     $('ul.tabs').tabs();
     $('select').material_select();
     $(".tooltiped").tooltip();
-    $('.modal-trigger').leanModal();
-    baguetteBox.run('.bbgallery');
+    $('.modal-trigger').modal();
+    // baguetteBox.run('.bbgallery');
 });

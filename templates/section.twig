@@ -18,23 +18,24 @@
     </div>
     <div class="sec">
         <div class="cin">
-
             <h2 class="subtitle">{{section.name}}</h2>
             <p class="sectshortdesc">{{section.description}}</p>
             <div class="lines"></div>
-            <div class="crlist">
+            <div class="crlist{{pages[0].content is not defined?' crlist-bigger'}}">
                 {% for page in pages %}
-                    {% if page.ext_link %}
+                    {% if page.ext_link is defined and page.ext_link %}
                         <a href="{{page.ext_link}}" class="crlistitem light-effect-p z-depth-1">
                     {% else %}
-                    <a href="{{l('/'~section.slug~'/'~page.slug)}}" class="crlistitem light-effect-p z-depth-1" title="{{page.title|e('html_attr')}}">
+                    <a href="{{l('/'~section.slug~'/'~page.slug)}}" class="crlistitem light-effect-p z-depth-1" title="{{(page.title is defined?page.title:page.name)|e('html_attr')}}">
                     {% endif %}
                         <div class="crlist-header light-effect" {{page.image ? ('style="'~gen_bgcss(page.image)~'"')|raw}}></div>
                         <div class="crlist-cont">
-                            <h3>{{page.title|truncate(90)}}</h3>
+                            <h3>{{(page.title is defined?page.title:page.name)|truncate(90)}}</h3>
+                            {% if page.content is defined %}
                             <div>
                                 <p>{{page.content|truncate(120)}}</p>
                             </div>
+                            {% endif %}
                         </div>
                     </a>
                 {% endfor %}

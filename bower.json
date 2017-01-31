@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "directory": "public_html/assets",
   "dependencies": {
+    "jquery": "^3.1.1",
     "materialize": "^0.97.8",
     "material-preloader": "artur99/material-preloader",
     "underscore": "^1.8.3"

@@ -6,6 +6,15 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
+$router_helper = function($type, $data=[]){
+    global $router;
+    //Acesta este helperul care face legătura dintre cotrollere și routere
+    return function($param=null)use($router, $type, $data){
+        if($param!=null) return $router[$type]($data, $param);
+        return $router[$type]($data);
+    };
+};
+
 $app->error(function(\Exception $e, $code)use($app) {
     return new Response(
         $app['twig']->render('error.twig', ['error_code' => $code, 'error_text'=>$e->getMessage()]), $code
@@ -154,21 +163,4 @@ $router['cont'] = function()use($app){
 $router_dash = function()use($app,$model){
     if(!($uid = $app['user']->loggedin())) return $app->redirect('/account');
     return $app['twig']->render('dashboard.twig');
-};
-
-$router_dash_groups = function()use($app,$model){
-    if(!($uid = $app['user']->loggedin())) return $app->redirect('/account');
-    $tdata = [];
-    $tdata['groups'] = $model->get_grouplist();
-
-    return $app['twig']->render('dashboard_groups.twig', $tdata);
-};
-$router_dash_group_in = function($gid)use($app,$model){
-    if(!($uid = $app['user']->loggedin())) return $app->redirect('/account');
-    if(!$app['user']->in_group($gid)) throw new AccessDeniedHttpException("Nu aveți acces la acest grup!");
-    $tdata = [];
-    $tdata['gid'] = $gid;
-    $tdata['group'] = $model->get_groupdata($gid);
-    if(!$tdata['group']) throw new AccessDeniedHttpException("Nu aveți acces la acest grup!");
-    return $app['twig']->render('dashboard_group_in.twig', $tdata);
 };

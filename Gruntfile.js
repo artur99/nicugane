@@ -3,8 +3,8 @@ module.exports = function(grunt) {
 		bower_concat: {
 			basic: {
 				dest: {
-					js: 'public_html/assets/components/bowercomp.js',
-					css: 'public_html/assets/components/bowercomp.css'
+					js: 'bower_components/_tmp/bowercomp.js',
+					css: 'bower_components/_tmp/bowercomp.css'
 				}
 			}
 		},
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 		    files: [
 				{
 					expand: true,
-					cwd: 'bower_components/Materialize/font/',
+					cwd: 'bower_components/materialize/fonts/',
 					src: '**',
 					dest: 'public_html/assets/fonts/',
 				},
@@ -29,12 +29,12 @@ module.exports = function(grunt) {
 		concat: {
 		    dist: {
 		      files: [
-		        {src: ['public_html/assets/components/bowercomp.js', 'src/js/lib.js', 'src/js/*.js', '!src/js/interface_*.js', '!src/js/interfaces.js', '!src/js/init.js', 'src/js/interfaces.js', 'src/js/interface_*.js', 'src/js/init.js'], dest: 'public_html/assets/components/data.js'},
-				{src: ['public_html/assets/components/bowercomp.css', 'src/css/*.css', 'src/css/main.css'], dest: 'public_html/assets/components/data.css'}
+		        {src: ['bower_components/_tmp/bowercomp.js', 'src/js/lib.js', 'src/js/*.js', '!src/js/init.js', 'src/js/init.js'], dest: 'public_html/assets/components/data.js'},
+				{src: ['bower_components/_tmp/bowercomp.css', 'src/css/*.css', 'src/css/main.css'], dest: 'public_html/assets/components/data.css'}
 		      ],
 		    },
 		},
-		clean: ['public_html/assets/components/bowercomp.js', 'public_html/assets/components/bowercomp.css'],
+		clean: ['bower_components/_tmp/bowercomp.js', 'bower_components/_tmp/bowercomp.css'],
 		uglify: {
 			options: {
 			  mangle: false,

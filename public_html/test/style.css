@@ -1,0 +1,132 @@
+body{
+    margin: 0; /*Ștergem marginea predefinită a body-ului*/
+    background: #eeeeee; /*Setăm culoarea body-ului la un gri foarte deschis*/
+}
+.header{ /*La divul cu clasa "header"*/
+    background: #dd5136; /*Setăm portocaliu pe fundal*/
+    text-align: center; /*Setăm alinierea textului la centru, astfel tot textul din el va fi centrat*/
+    color: white; /*Setăm culoare textului albă*/
+    font-size: 35px; /*Setăm morimea fontului la 35px*/
+    font-weight: bold; /*Facem textul îngroșat*/
+    height: 80px; /*Setăm înălțimea acestui div la 80px*/
+    width: 100%; /*Setăm lâțimea acestui div la 100% (de la un capăt la altul a body-ului)*/
+    line-height: 75px; /*Setăm înălțimea rândului de 75px, asta va centra pe verticală textul */
+    /*Acest line height setează, de fapt, o înălțime a rândului, iar textul, de 35px va fi centrat vertical pe acea înălțime*/
+    font-family: Pacifico, cursive; /*Setăm fontul Pacifico, și un fallback(care va fi setat în caz că Pacifico nu va fi găsit)*/
+}
+.menu{ /*La divul cu clasa "menu"*/
+    width: 100%; /*Setăm lâțimea acestui div la 100%*/
+    height: 50px; /*Setăm înălțimea divului de 50px*/
+    background: white; /*Setăm fundalul alb(se va diferenția de gri-ul deschis de pe body)*/
+    text-align: center; /*Aliniem textul din el la centru*/
+}
+
+.menu a{ /*La toate elementele <a> din divul cu clasa "menu"*/
+    color: black; /*Setăm culoarea textului negru - predefinit link-urile(<a>) sunt albastre/mov*/
+    text-decoration: none; /*Scoatem sublinierea, care este predefinită la linkuri*/
+    font-size: 18px; /*Setăm mărimea fontului de 18px */
+    line-height: 48px; /*Se setează înălțimea rândului de 48px*/
+    margin-left: 7px; /*Fiecare element din meniu(adică fiecare link[fiecare <a>]), are un spațiu la stânga de 7px*/
+    margin-right: 7px; /*Și unul la dreapta de 7px, astfel, spațiul dintre ele va fi de 14px*/
+}
+
+.cont{ /*La divul cu clasa "cont"*/
+    /*Acest div, pentru că nu are niciun fundal, nu este efectiv vizibil - este folosit doar pentru structurare */
+    /*Adică pentru centrarea elementelor în pagină - toate elementele din el vor fi încadrate */
+    /*în cei 960px din mijlocul(pe orizontală) paginii */
+    width: 960px; /*Se setează lățimea de 960px(pe multe calculatoare asta reprezintă undeva la 70% din lățime)*/
+    height: auto; /*Setăm înălțimea automat, adică pentru oricât conținut am mai adăuga, ea să tot crească*/
+    margin: auto; /*Acest margin:auto, sau margin-left:auto;margin-right:auto; centrează(pe orizontală) un */
+    /*element de tip block în elementul(tot de tip block) în care se află. În acest caz div-ul .cont e centrat în body*/
+    /*Fără această margine automată, div-ul ar fi fost așezat în stânga, de la marginea din stânga, până la ~70% din ecran*/
+    margin-top: 20px; /*Se setează o margine(spațiu) de 20px deasupra acestui element*/
+    margin-bottom: 20px; /*Se setează o margine de 20px sub acest element*/
+}
+/*Divurile .left și .right sunt 2 elemente din divul .cont, ce se vor comporta ca 2 coloane [Verifică HMTL-ul]*/
+/*Una de lățime 70%, cealaltă de lățime 30%, astfel acoperind tot conținutul divului .cont*/
+/*Predefinit, 2 div-uri, dacă ar fi puse unul după altul, chiar dacă ar avea lățimea foarte mică, ele vor apărea*/
+/*unul sub altul. Pentru a trece de asta, va terbui ca celor 2 divuri(.left și .right) să le setăm proprietatea float: left*/
+.left{ /*La divul cu clasa "left"*/
+    width: 70%; /*Lățime de 70%*/
+    float: left; /*[vezi mai sus]*/
+}
+.right{
+    width: 30%; /*Lățime de 30%*/
+    float: left; /*[vezi mai sus]*/
+}
+
+.main{ /* .main este un div plasat în divul .left, care la rândul lui este în divul .cont */
+    /*Acesta va fi, efectiv, elementul în care se va afla conținulul paginii (titlu, paragrafe, etc)*/
+    width: 90%; /*Ia 90% din lățimea elementului-părinte(.left), adică 90% din cei 70% ai lui .left, din cei 960px ai lui .cont*/
+    margin: auto; /*Este centrat orizontal în .main*/
+    background: white; /*Ia fundalul alb, se diferențiază prin asta de fundalul bodyului*/
+    padding: 10px; /*Ia o margine interioară(sus, jos, stânga, dreapta) (spațiu dintre bordura*/
+    /*elementului și textul sau conținutul din el)*/
+    padding-left: 20px; /*Este mărită marginea interioară din stânga la 20px (în loc de 10px)*/
+    padding-right: 20px; /*La fel și în dreapta*/
+    font-size: 17px; /*Se setează dimensiunea fontului la 17px*/
+}
+
+.titlu_articol{ /* La elemetnul cu clasa "titlu_articol" (un h2, titlul articolului din .main) */
+    margin: 0; /*Eliminăm marginea predefinită de la h2*/
+    margin-top: 10px; /*Setăm margine sus de 10px*/
+    margin-bottom: 20px; /*La fel și jos*/
+    font-size: 32px; /*Mărimea textului setată de 32px*/
+    font-family: Ubuntu, sans-serif;/*Fontul sans-serif (există câteva mari cateogorii de fonturi, printre care și serif sau sans-serif)*/
+    /*Serif e ascuțit, sans-serif nu este :)) */
+}
+.img_articol{ /* La elementul cu clasa "img_articol" (imaginea de sub titlul articolului din .main)*/
+    /* predefinit, imaginile iau lățimea originală, deci dacă s-ar pune o imagine cu lățimea de 2000px, ar ieși și din .main, și
+    /* din .left și din .cont, și din body :)) Ar fi o parte din imagine pe pagină, și o bucată afară */
+    max-width: 100%; /*De asta setăm o lățime maximă de 100%. Deci dacă imaginea va avea lățimea de 100px, va rămâne așa. Dacă, */
+    /* în schimb, va avea 2000px, va fi redimensionată proporțional și va lua 100% din lățimea părintelui (exact lățimea lui .main)*/
+}
+.main p{ /*La toate parafrafele din .main*/
+    font-family: Roboto, sans-serif;
+}
+
+/*Începem partea din dreapta, cea cu widgeturile.*/
+/*dacă verificăm HTML-ul, vom vedea că fiecare widget e format dintr-un div mare, cu clasa .widget, și 2 mai mici, puse în el */
+/*Unul e .widget_header, și unul .widget_body*/
+.widget{
+    width: 95%; /*Setăm lățimea widget-ului la 95% din elementul-părinte(care, în acest caz, este .right)*/
+    margin: auto; /*Îl centrăm pe orizontală în .right(deci va avea 2.5% spațiu în stânga, și 2.5% în dreapta)*/
+    background: white; /*Setăm fundalul div-ului în alb*/
+    margin-bottom: 30px; /*Punem o margine sub .widget, pentru a asigura un spațiu între widgeturi*/
+}
+.widget_header{
+    background: #dd5136; /*Setăm fundalul headerului widgetului în portocaliu*/
+    color: white; /*Și culoarea textului în alb*/
+    font-weight: bold; /*Îl facem bold*/
+    font-size: 20px; /*Și îl mărim puțin*/
+    padding-left: 13px; /*Punem niște spațiu/margine interioară, în toate direcțiile*/
+    padding-right: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: Ubuntu, sans-serif; /*Setăm unul din fonturile frumoase, din cele luate de la google fonts*/
+}
+.widget_body{
+    padding: 17px; /*Setăm marginea interioară, iar, în toate direcțiile la fel*/
+    font-family: Roboto, sans-serif; /*Facem fontul ne-ascuțit*/
+    font-size: 16px; /*Mărim puți textul*/
+}
+
+
+/* Acum va trebui să adăugăm footer-ul. */
+/* doar că, odată cu float:left-ul setat anterior, apare o problemă, și anume că: într-un div părinte(.cont), dacă se află doar */
+/* divuri care au float-uri, înălțimea lui va fi 0. Acest lucru se repară printr-o poprietate pusă la divul părinte(.cont)*/
+.cont{
+    overflow: hidden; /*Gata! :D */
+}
+/*Acum să mergem la codul efectiv pentru footer*/
+.footer{
+    background: #333; /* Îi setăm un fundal gri spre negru */
+    color: #dd5136; /*Culoarea textului portocalie*/
+    height: auto; /*Înălțimea automată(înălțimea rândului/textului + paddingul)*/
+    font-family: Pacifico, cursive; /*Setăm fontul frumos care e pus și în .header */
+    font-size: 25px; /*Îl mărim puțin*/
+    text-align: center; /*Îl centrăm*/
+    padding-top: 17px; /*Punem niște spațiu interior*/
+    padding-bottom: 17px;
+}
+/*Totul de mai sus, dacă vom lasă doar asta, va funcționa aproape
