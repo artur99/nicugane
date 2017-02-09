@@ -22,6 +22,12 @@ module.exports = function(grunt) {
 					cwd: 'bower_components/font-awesome/fonts/',
 					src: '**',
 					dest: 'public_html/assets/fonts/',
+				},
+				{
+					expand: true,
+					cwd: 'bower_components/trumbowyg/dist/ui/',
+					src: '**',
+					dest: 'public_html/assets/components/ui/',
 				}
 		    ],
 		  },
@@ -30,7 +36,7 @@ module.exports = function(grunt) {
 		    dist: {
 		      files: [
 		        {src: ['bower_components/_tmp/bowercomp.js', 'src/js/lib.js', 'src/js/*.js', '!src/js/init.js', 'src/js/init.js'], dest: 'public_html/assets/components/data.js'},
-				{src: ['bower_components/_tmp/bowercomp.css', 'src/css/*.css', 'src/css/main.css'], dest: 'public_html/assets/components/data.css'}
+				{src: ['bower_components/_tmp/bowercomp.css', 'bower_components/trumbowyg/dist/ui/trumbowyg.min.css', 'src/css/*.css', 'src/css/main.css'], dest: 'public_html/assets/components/data.css'}
 		      ],
 		    },
 		},

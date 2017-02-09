@@ -17,7 +17,7 @@ include 'ajax_login.php';
 // $app->match('/evenimente/{param}', $router_helper('eveniment'));
 // $app->match('/catedre', $router_helper('catedre'));
 // $app->match('/catedre/{param}', $router_helper('catedra'));
-$app->match('/cont', $router_helper('cont'));
+// $app->match('/cont', $router_helper('cont'));
 
 // $app->match('/evenimente', $router_helper('proto'));
 // $app->match('/catedre', $router_helper('proto'));

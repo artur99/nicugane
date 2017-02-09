@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    {% include 'part/head.twig' %}
+</head>
+<body class="landing">
+    {% include 'part/header.twig' %}
+
+    <div class="header">
+        <div class="headerin">
+            <h1>{{title}}</h1>
+            <span class="bcnav">
+                <a href="{{l('/')}}">CNNG</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/catedre')}}">Catedre</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="{{l('/catedre/'~cpdata.slug)}}">{{cpdata.name}}</a>
+                <i class="material-icons">&#xE315;</i>
+                <a href="#">Adaugă postare</a>
+            </span>
+        </div>
+    </div>
+    <div class="thepage">
+        <div class="cin">
+            <div class="thecontent cardart">
+                <a href="{{l('/catedre/'~cpdata.slug)}}" class="btn2 smallbtn left"><i class="material-icons">&#xE314;</i> Înapoi la postări</a>
+                <div class="clear"></div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="tinyh2">Postare nouă ({{cpdata.name}})</h2>
+                        <form action="">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="form_title" type="text" class="validate">
+                                    <label for="form_title">Introduceți titlul postării...</label>
+                                </div>
+                                <div class="col s12">
+                                    <div id="form_editor" class="trumbowygeditor" placeholder="Introduceți conținutul postării..."></div>
+                                </div>
+                                <div class="col s12 file-field input-field">
+                                    <div class="btn z-depth-0 blue">
+                                        <span>Încărcare</span>
+                                        <input type="file" id="form_files" multiple>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Opțional, alegeți atașamentele postării...">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn2 smallbtn right">Adaugă postarea</a>
+                    </div>
+                </div>
+            </div>
+            {% include 'part/sidebar.twig' %}
+        </div>
+    </div>
+
+    {% include 'part/footer.twig' %}
+
+    {% include 'part/scripts.twig' %}
+</body>
+</html>

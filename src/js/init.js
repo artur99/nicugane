@@ -18,5 +18,6 @@ $(document).ready(function(){
     $('select').material_select();
     $(".tooltiped").tooltip();
     $('.modal-trigger').modal();
+    $('.trumbowygeditor').trumbowyg();
     // baguetteBox.run('.bbgallery');
 });

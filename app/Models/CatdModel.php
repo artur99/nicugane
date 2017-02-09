@@ -38,7 +38,7 @@ class CatdModel extends BaseModel{
         $q->from('catd_articles', 'a');
         $q->join('a', 'users', 'u', 'a.user_id = u.id');
         $q->where('catd_id = ?')->setParameter(0, $catdId);
-        $rh = $q->execute();
+        $rh = $q->execute()->fetchAll();
         return $rh;
     }
 }

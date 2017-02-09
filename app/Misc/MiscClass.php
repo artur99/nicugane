@@ -24,7 +24,11 @@ class MiscClass{
         return $data;
     }
     public function validate($data, $type){
-        if(!isset($data[$type]))return 0;
+        if(!isset($data[$type])){
+            $tmpd = $data;
+            $data = [];
+            $data[$type] = $tmpd;
+        }
         if($type=='email'){
             if(strlen($data[$type])<6 || !filter_var($data[$type], FILTER_VALIDATE_EMAIL)) return 0;
         }elseif($type=='password'){

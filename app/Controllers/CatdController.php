@@ -14,6 +14,7 @@ class CatdController implements ControllerProviderInterface{
         $indexController = $app['controllers_factory'];
         $indexController->get('/catedre', [$this, 'handeCatdIndex'])->bind('catedre');
         $indexController->get('/catedre/{slug}', [$this, 'handeOneCatd'])->bind('catedra');
+        $indexController->get('/catedre/{slug}/adaugare', [$this, 'handeOneCatdAdd'])->bind('catedra_adaugare');
         // $indexController->get('/'.$section['slug'].'/{slug}', [$this, 'handleSectionPage'])->bind('sectionpage_'.$section['slug']);
         return $indexController;
     }
@@ -45,5 +46,18 @@ class CatdController implements ControllerProviderInterface{
             'catddata' => $arts
         ];
         return $app['twig']->render('catedra.twig', $twigdata);
+    }
+    public function handeOneCatdAdd(Application $app, $slug){
+        if(!($info = $this->catdModel->getCatdInfo($slug))){
+            throw new NotFoundHttpException("Pagina nu există");
+        }
+        $arts = $this->catdModel->getCatdArts($info['id']);
+
+        $twigdata = [
+            'title' => $info['name'],
+            'cpdata' => $info,
+            'catddata' => $arts
+        ];
+        return $app['twig']->render('catedra_adaugare.twig', $twigdata);
     }
 }

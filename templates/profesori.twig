@@ -26,9 +26,13 @@
                     <div class="prof-header light-effect" {{item.image ? ('style="'~gen_bgcss(item.image)~'"')|raw}}></div>
                     <div class="prof-cont">
                         <div>
+                            {% if item.data.statut is defined %}
                             <h5>{{item.data.statut}}</h5>
+                            {% endif %}
                             <h3>{{item.name}}</h3>
+                            {% if item.data.spec is defined %}
                             <h4>{{item.data.spec|join(' & ')}}</h4>
+                            {% endif %}
                         </div>
                     </div>
                 </a>

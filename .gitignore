@@ -50,7 +50,10 @@ composer.lock
 ### app/conf.yaml -fixat altfel
 
 ### Generated data ###
+public_html/uploads/*
+!public_html/uploads/readme.txt
 public_html/assets/*
 !public_html/assets/readme.txt
 !public_html/assets/img*
 .trash
+app/_trash

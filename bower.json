@@ -6,7 +6,8 @@
     "jquery": "^3.1.1",
     "materialize": "^0.97.8",
     "material-preloader": "artur99/material-preloader",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "trumbowyg": "^2.4.2"
   },
   "devDependencies": {},
   "appPath": "app",

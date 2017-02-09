@@ -14,14 +14,18 @@
                 <i class="material-icons">&#xE315;</i>
                 <a href="{{l('/catedre')}}">Catedre</a>
                 <i class="material-icons">&#xE315;</i>
-                <a href="#">{{cpdata.name}}</a>
+                <a href="{{l('/catedre/'~cpdata.slug)}}">{{cpdata.name}}</a>
             </span>
         </div>
     </div>
     <div class="thepage">
         <div class="cin">
             <div class="thecontent cardart">
-                <a href="{{l('/catedre')}}" class="btn2 smallbtn"><i class="material-icons">&#xE314;</i> Înapoi la catedre</a>
+                <a href="{{l('/catedre')}}" class="btn2 smallbtn left"><i class="material-icons">&#xE314;</i> Înapoi la catedre</a>
+                {% if user_in %}
+                    <a href="{{l('/catedre/'~cpdata.slug~'/adaugare')}}" class="btn2 smallbtn right"><i class="material-icons">&#xE89C;</i> Adaugă postare</a>
+                {% endif %}
+                <div class="clear"></div>
                 {% for item in catddata %}
                 <div class="card">
                     <div class="card-content">

@@ -14,7 +14,7 @@ class model{
         $q->orderBy('priority', 'DESC');
         $res = $q->execute()->fetchAll();
         array_walk($res, function(&$val){
-            $val['data'] = json_decode($val['data']);
+            $val['data'] = (array)json_decode($val['data']);
         });
         return $res;
     }
