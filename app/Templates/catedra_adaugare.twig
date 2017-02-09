@@ -27,29 +27,30 @@
                 <div class="card">
                     <div class="card-content">
                         <h2 class="tinyh2">Postare nouă ({{data.name}})</h2>
-                        <form action="">
+                        <form action="#" method="POST" id="form_addcatdpost">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="form_title" type="text" class="validate">
-                                    <label for="form_title">Introduceți titlul postării...</label>
+                                    <input type="text" id="input_title" name="input_title">
+                                    <label for="input_title">Introduceți titlul postării...</label>
                                 </div>
                                 <div class="col s12">
-                                    <div id="form_editor" class="trumbowygeditor" placeholder="Introduceți conținutul postării..."></div>
+                                    <div id="input_editor" class="trumbowygeditor" placeholder="Introduceți conținutul postării..."></div>
                                 </div>
                                 <div class="col s12 file-field input-field">
                                     <div class="btn z-depth-0 blue">
                                         <span>Încărcare</span>
-                                        <input type="file" id="form_files" multiple>
+                                        <input type="file" id="input_files" name="input_files" multiple>
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Opțional, alegeți atașamentele postării...">
                                     </div>
                                 </div>
                             </div>
+                            <div class="row tac">
+                                <button type="submit" class="btn2">Adaugă postarea</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn2 smallbtn right">Adaugă postarea</a>
+                        <div class="clear"></div>
                     </div>
                 </div>
             </div>

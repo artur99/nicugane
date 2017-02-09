@@ -45,3 +45,27 @@ $(document).on('click', '#btn-logout', function(){
         }, 400);
     })
 });
+$(document).on('submit', "#form_addcatdpost", function(e){
+    e.preventDefault();
+    var fid = "#form_addcatdpost";
+
+    if(markerloading(fid)) return;
+    markloading_btn(fid+' [type=submit]');
+    var data = new FormData();
+    data.append('title', $("#input_title").val().trim());
+    data.append('content', $("#input_editor").trumbowyg('html'));
+    $.each($('#input_files')[0].files, function(i, file) {
+        data.append('file-'+i, file);
+    });
+    ajax('catedre/add', data, function(data){
+        data = form_validate_response_data(data);
+        if(data.type == 'error'){
+            setTimeout(function(data){
+                unmarkloading(fid);
+            },100);
+        }else{
+            form_redirect(data.link, 500, true);
+        }
+        form_response_fill(fid, data, 'input_files');
+    });
+});

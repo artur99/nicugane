@@ -11,6 +11,7 @@ class AjaxController implements ControllerProviderInterface{
     public function connect(Application $app){
         $indexController = $app['controllers_factory'];
         $indexController->post('/account/{kind}', [$this, 'account']);
+        $indexController->post('/catedre/add', [$this, 'addCatdPost']);
         return $indexController;
     }
     public function account(Application $app, $kind){
@@ -40,5 +41,8 @@ class AjaxController implements ControllerProviderInterface{
             $resp->headers->clearCookie('token');
         $resp->setData($data);
         return $resp;
+    }
+    public function addCatdPost(Application $app){
+
     }
 }

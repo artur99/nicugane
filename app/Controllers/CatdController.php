@@ -42,8 +42,8 @@ class CatdController implements ControllerProviderInterface{
 
         $twigdata = [
             'title' => $info['name'],
-            'cpdata' => $info,
-            'catddata' => $arts
+            'data' => $info,
+            'items' => $arts
         ];
         return $app['twig']->render('catedra.twig', $twigdata);
     }
@@ -55,8 +55,8 @@ class CatdController implements ControllerProviderInterface{
 
         $twigdata = [
             'title' => $info['name'],
-            'cpdata' => $info,
-            'catddata' => $arts
+            'data' => $info,
+            'items' => $arts
         ];
         return $app['twig']->render('catedra_adaugare.twig', $twigdata);
     }

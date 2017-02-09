@@ -52,6 +52,15 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([rea
     border-right-color: #3084FF;
     border-bottom-color: #3084FF;
 }
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+	line-height: 2.6rem;
+    height: 2.6rem;
+}
+.file-field .btn, .file-field .btn-large{
+    font-size: 15px;
+    height: 2.6rem;
+    line-height: 2.6rem;
+}
 #toast-container{
     left: 8%;
     right: auto;

@@ -9,17 +9,28 @@ function ajax(node, data, cb, retry){
     if(typeof retry == "number") retry = retry>0 ? retry-1 : 0;
     else retry = 1;
 
-    data.csrftoken = csrftoken;
+    if(data.constructor.name == 'FormData'){
+        data.append('csrftoken', csrftoken);
+    }else{
+        data.csrftoken = csrftoken;
+    }
     if(typeof groups_group_id == 'number') data.gid = groups_group_id;
-    $.post('/ajax/'+node, data).done(function(scc_data){
-        cb(scc_data, 'success');
-    }).fail(function(err_data){
-
-        if(retry){
-            setTimeout(function(){
-                ajax(node, data, cb, retry);
-            }, 250);
-        } else cb(err_data, 'error');
+    $.ajax({
+        type: "POST",
+        url: '/ajax/'+node,
+        data: data,
+        processData: false,
+        contentType: false,
+        success: function(scc_data){
+            cb(scc_data, 'success');
+        },
+        error: function(err_data){
+            if(retry){
+                setTimeout(function(){
+                    ajax(node, data, cb, retry);
+                }, 250);
+            } else cb(err_data, 'error');
+        }
     });
 }
 
@@ -78,6 +89,9 @@ function form_response_fill(fid, data, lastel){
 }
 function form_redirect(where, time, prel){
     if(typeof prel != 'undefined' && prel) preloader.on();
+    if(where == ''){
+        where = window.location.href;
+    }
     setTimeout(function(){
         window.location.href = where;
     },time);

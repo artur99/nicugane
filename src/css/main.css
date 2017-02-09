@@ -348,6 +348,9 @@ html,body{
     margin: 2px 1px;
     border-width: 1px;
 }
+.longbtn{
+    padding: 8px 35px;
+}
 .subtitle{
     font-family: 'Raleway', sans-serif;
     font-size: 36px;
